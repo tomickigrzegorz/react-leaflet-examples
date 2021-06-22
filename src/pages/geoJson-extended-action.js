@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import L from 'leaflet';
 import geojson from '../data/wojewodztwa-medium.geojson.json'
 
@@ -41,7 +41,6 @@ function onEachFeature(feature, layer) {
 
 const MapWrapper = () => {
   const [map, setMap] = useState(null);
-  const [element, setElement] = useState(null);
 
   useEffect(() => {
     if (map) {
@@ -50,7 +49,6 @@ const MapWrapper = () => {
       legend.onAdd = () => {
         const div = L.DomUtil.create("div", "legend");
         div.innerHTML = `click/hover on polygon`;
-        setElement(div);
         return div;
       };
 

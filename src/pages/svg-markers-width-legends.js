@@ -36,8 +36,6 @@ const points = [
 ];
 
 function Legend({ map }) {
-  console.log(map);
-
   useEffect(() => {
     if (map) {
       const legend = L.control({ position: "bottomright" });
@@ -79,6 +77,19 @@ function customMarkerIcon(color) {
   })
 }
 
+function MyMarkers(props) {
+  const { data } = props;
+  return data.map((item, index) => (
+    <Marker
+      key={index}
+      icon={(customMarkerIcon(colors[index]))}
+      position={{ lat: item.lat, lng: item.lng }}
+    >
+      <Popup>{item.title}</Popup>
+    </Marker>
+  ));
+}
+
 const MapWrapper = () => {
   const [map, setMap] = useState(null);
   return (
@@ -88,11 +99,7 @@ const MapWrapper = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {points.map(({ lat, lng, title }, index) => (
-        <Marker icon={(customMarkerIcon(colors[index]))} key={index} position={[lat, lng]}>
-          <Popup>{title}</Popup>
-        </Marker>
-      ))}
+      <MyMarkers data={points} />
 
       <Legend map={map} />
 

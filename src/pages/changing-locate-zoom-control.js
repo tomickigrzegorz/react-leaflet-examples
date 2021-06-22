@@ -1,10 +1,11 @@
 import React from 'react';
 import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
 
+const center = [52.22977, 21.01178];
+
 const MapWrapper = () => {
-  const position = [52.22977, 21.01178];
   return (
-    <MapContainer zoomControl={false} center={position} zoom={18} scrollWheelZoom={false}>
+    <MapContainer zoomControl={false} center={center} zoom={18} scrollWheelZoom={false}>
       <ZoomControl position={'topright'} />
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

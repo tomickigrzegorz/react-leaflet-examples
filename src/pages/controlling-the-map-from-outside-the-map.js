@@ -1,7 +1,24 @@
-import React, { useState } from 'react';
-import { MapContainer, useMap, FeatureGroup, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useRef, useEffect, useState } from 'react';
+import { MapContainer, useMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import styled from 'styled-components';
 
-const position = [52.2295, 21.01];
+const MarkersList = styled.div`
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  max-width: 350px;
+  margin: auto;
+  color: salmon;
+`;
+
+const MarkerItem = styled.div`
+  &:hover {
+    padding-bottom: 5px;
+    border-bottom: 1px solid salmon;
+  }
+`;
+
+const center = [52.2295, 21.01];
 
 const points = [
   {
@@ -30,48 +47,73 @@ const points = [
   },
 ]
 
-function MyComponent({ latLng }) {
+function ListMarkers(props) {
+  const { onItemClick } = props;
+  return (
+    <MarkersList>
+      {points.map(({ title }, index) => (
+        <MarkerItem key={index}
+          onClick={e => {
+            e.preventDefault();
+            onItemClick(index);
+          }}>
+          {title}
+        </MarkerItem>
+      ))}
+    </MarkersList>
+  );
+}
+
+function MyMarkers(props) {
+  const { data, selectedIndex } = props;
+  return data.map((item, index) => (
+    <PointMarker
+      key={index}
+      content={item.title}
+      center={{ lat: item.lat, lng: item.lng }}
+      openPopup={selectedIndex === index}
+    />
+  ));
+}
+
+function PointMarker(props) {
   const map = useMap();
+  const markerRef = useRef(null);
+  const { center, content, openPopup } = props;
 
-  if (latLng) {
-    // TODO: jak otworzyć popup
-    map.flyToBounds([latLng]);
-  }
+  useEffect(() => {
+    if (openPopup) {
+      map.flyToBounds([center]);
+      markerRef.current.openPopup();
+    }
+  }, [map, center, openPopup]);
 
-  return null
+  return (
+    <Marker ref={markerRef} position={center}>
+      <Popup>{content}</Popup>
+    </Marker>
+  );
 }
 
 const MapWrapper = () => {
-  const [latLng, setlatLng] = useState()
+  const [selected, setSelected] = useState();
+
+  function handleItemClick(index) {
+    setSelected(index);
+  }
 
   return (
     <>
-      <MapContainer center={position} zoom={16} scrollWheelZoom={false}>
+      <MapContainer center={center} zoom={16} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        <FeatureGroup>
-          {points.map(({ lat, lng, title, id }, index) => (
-            <Marker key={index} position={[lat, lng]} title={id}>
-              <Popup>{title}</Popup>
-            </Marker>
-          ))}
-        </FeatureGroup>
-
-        <MyComponent latLng={latLng} />
+        <MyMarkers selectedIndex={selected} data={points} />
       </MapContainer>
 
-      <div className="container space-between">
-        {points.map(({ lat, lng, title, id }, index) => (
-          <a key={index} href={'#' + id} className="marker-click" onClick={(e) => {
-            e.preventDefault();
-            setlatLng([lat, lng]);
-          }}>{title}</a>
-        ))}
-      </div>
-
+      <ListMarkers data={points} onItemClick={handleItemClick} />
     </>
   )
 }

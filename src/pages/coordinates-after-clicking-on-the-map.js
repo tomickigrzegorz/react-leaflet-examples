@@ -1,25 +1,44 @@
-import React, { useState } from 'react';
-import { MapContainer, useMapEvents, TileLayer, } from 'react-leaflet';
+import React, { useEffect } from 'react';
+import { MapContainer, useMap, TileLayer, } from 'react-leaflet';
+import L from 'leaflet';
+
+const center = [52.22977, 21.01178];
 
 function Location() {
-  const [position, setPosition] = useState(null)
+  const map = useMap();
 
-  useMapEvents({
-    click: (e) => {
-      setPosition(e.latlng);
-    },
-  })
+  useEffect(() => {
+    if (map) {
+      const info = L.DomUtil.create('div', 'legend');
 
-  return position === null ? <div className="marker-position">Click on map</div> : (
-    <div className="marker-position">{JSON.stringify(position, null, 2)}</div>
-  );
+      const positon = L.Control.extend({
+        options: {
+          position: 'bottomleft'
+        },
+
+        onAdd: function () {
+          info.textContent = 'Click on map';
+          return info;
+        }
+      })
+
+      map.on('click', (e) => {
+        info.textContent = e.latlng;
+      })
+
+      map.addControl(new positon());
+
+    }
+  }, [map])
+
+
+  return null
+
 }
 
 const MapWrapper = () => {
-
-  const position = [52.22977, 21.01178];
   return (
-    <MapContainer center={position} zoom={18} scrollWheelZoom={false}>
+    <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

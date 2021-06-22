@@ -50,11 +50,11 @@ const placeColor = { color: 'blue' }
 const MapWrapper = () => {
   return (
     <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
+      <TileLayer
+        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
       <LayersControl position="topright">
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
         <LayersControl.Overlay name="River">
           <FeatureGroup>
             <Polygon pathOptions={riverColor} positions={River} />
@@ -66,7 +66,6 @@ const MapWrapper = () => {
           </FeatureGroup>
         </LayersControl.Overlay>
       </LayersControl>
-
       <ControllingGroup />
     </MapContainer >
   )

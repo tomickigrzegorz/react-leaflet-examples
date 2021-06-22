@@ -1,5 +1,8 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+
+const center = [52.22977, 21.01178];
+const zoom = 18;
 
 const points = [
   {
@@ -25,11 +28,21 @@ const points = [
 ];
 
 function MyMarkers(props) {
+  const map = useMap();
   const { data } = props;
+
   return data.map((item, index) => (
     <Marker
       key={index}
       position={{ lat: item.lat, lng: item.lng }}
+      eventHandlers={{
+        click(e) {
+          const location = e.target.getLatLng();
+          setTimeout(() => {
+            map.flyToBounds([location]);
+          }, 100);
+        }
+      }}
     >
       <Popup>{item.title}</Popup>
     </Marker>
@@ -37,16 +50,15 @@ function MyMarkers(props) {
 }
 
 const MapWrapper = () => {
-  const position = [52.22977, 21.01178];
+
   return (
-    <MapContainer center={position} zoom={18} scrollWheelZoom={false}>
+    <MapContainer center={center} zoom={zoom} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
       <MyMarkers data={points} />
-
     </MapContainer>
   )
 }

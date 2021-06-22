@@ -1,176 +1,217 @@
 [
   {
     "link": "simple-map",
-    "text": "simple map"
+    "text": "simple map",
+    "done": "true"
   },
   {
     "link": "changing-locate-zoom-control",
-    "text": "changing locate zoom control"
+    "text": "changing locate zoom control",
+    "done": "true"
   },
   {
     "link": "adding-one-marker",
-    "text": "adding one marker"
+    "text": "adding one marker",
+    "done": "true"
   },
   {
     "link": "many-markers",
-    "text": "many markers"
+    "text": "many markers",
+    "done": "true"
   },
   {
     "link": "coordinates-after-clicking-on-the-map",
-    "text": "coordinates after clicking on the map"
+    "text": "coordinates after clicking on the map",
+    "done": "true"
   },
   {
     "link": "coordinates-of-the-visible-map",
-    "text": "coordinates of the visible map"
+    "text": "coordinates of the visible map",
+    "done": "true"
   },
   {
     "link": "image-instead-of-map",
-    "text": "image instead of map"
+    "text": "image instead of map",
+    "done": "true"
   },
   {
     "link": "controlling-different-groups-of-markers",
-    "text": "controlling different groups of markers"
+    "text": "controlling different groups of markers",
+    "done": "true"
   },
   {
     "link": "marker-grouping-markercluster-plugin",
-    "text": "marker grouping markercluster plugin"
+    "text": "marker grouping markercluster plugin",
+    "done": "true"
   },
   {
     "link": "matching-all-markers-to-the-map-view",
-    "text": "matching all markers to the map view"
+    "text": "matching all markers to the map view",
+    "done": "true"
   },
   {
     "link": "controlling-the-map-from-outside-the-map",
-    "text": "controlling the map from outside the map"
+    "text": "controlling the map from outside the map",
+    "done": "true"
   },
   {
     "link": "controling-polygons",
-    "text": "controling polygons"
+    "text": "controling polygons",
+    "done": "true"
   },
   {
     "link": "svg-markers-width-legends",
-    "text": "svg markers width legends"
+    "text": "svg markers width legends",
+    "done": "true"
   },
   {
     "link": "dragable-markers",
-    "text": "dragable markers"
+    "text": "dragable markers",
+    "done": "true"
   },
   {
     "link": "geoJson-simple",
-    "text": "geoJson simple"
+    "text": "geoJson simple",
+    "done": "true"
   },
   {
     "link": "geoJson-extended-action",
-    "text": "geoJson extended action"
+    "text": "geoJson extended action",
+    "done": "true"
   },
   {
-    "link": "TileLayer",
-    "text": "tileLayer"
+    "link": "tileLayer",
+    "text": "tileLayer",
+    "done": "false"
   },
   {
     "link": "add-move-and-delete-marker",
-    "text": "add move and delete marker"
+    "text": "add move and delete marker",
+    "done": "true"
   },
   {
     "link": "custom-button",
-    "text": "custom button"
+    "text": "custom button",
+    "done": "true"
   },
   {
     "link": "maxBound-map-restricts-the-view",
-    "text": "maxBound map restricts the view"
+    "text": "maxBound map restricts the view",
+    "done": "true"
   },
   {
     "link": "geocoding-addresses-search-engine-outside-the-map",
     "text": "geocoding addresses search engine outside the map",
-    "info": "<a href='https://github.com/tomik23/autocomplete' target='_blank'>the example uses the autocomplete</a>"
+    "info": "<a href='https://github.com/tomik23/autocomplete' target='_blank'>the example uses the autocomplete</a>",
+    "done": "false"
   },
   {
     "link": "center-map-when-click-marker",
-    "text": "center map when click marker"
+    "text": "center map when click marker",
+    "done": "true"
   },
   {
     "link": "custom-marker-and-popup",
-    "text": "custom marker and popup"
+    "text": "custom marker and popup",
+    "done": "true"
   },
   {
     "link": "polyline",
-    "text": "polyline"
+    "text": "polyline",
+    "done": "true"
   },
   {
     "link": "fitBounds-with-padding",
     "text": "fitBounds with padding",
-    "info": "Grab the bottom right corner and change the size of the frame or change the window size"
+    "info": "Grab the bottom right corner and change the size of the frame or change the window size",
+    "done": "true"
   },
   {
     "link": "markers-60K",
     "text": "markers 60K",
-    "info": "60 thousand markers. For better optimization change the map to canvas + use markerCluster plugin + and change the marker to circleMarker (canvas)"
+    "info": "60 thousand markers. For better optimization change the map to canvas + use markerCluster plugin + and change the marker to circleMarker (canvas)",
+    "done": "false"
   },
   {
     "link": "fullscreen",
     "text": "fullscreen",
-    "info": "<a href='https://github.com/Leaflet/Leaflet.fullscreen' target='_blank'>the example uses the fullscreen plugin</a>"
+    "info": "<a href='https://github.com/Leaflet/Leaflet.fullscreen' target='_blank'>the example uses the fullscreen plugin</a>",
+    "done": "true"
   },
   {
     "link": "adding-map-description",
-    "text": "adding map description"
+    "text": "adding map description",
+    "done": "true"
   },
   {
     "link": "linked-view",
-    "text": "linked view"
+    "text": "linked view",
+    "done": "false"
   },
   {
     "link": "mini-map",
     "text": "miniMap plugin",
-    "info": "<a href='https://github.com/Norkart/Leaflet-MiniMap' target='_blank'>the example uses the minimap plugin</a>"
+    "info": "<a href='https://github.com/Norkart/Leaflet-MiniMap' target='_blank'>the example uses the minimap plugin</a>",
+    "done": "false"
   },
   {
     "link": "Leaflet.awesome-markers",
     "text": "awesome markers plugin",
-    "info": "<a href='https://github.com/lvoogdt/Leaflet.awesome-markers' target='_blank'>the example uses the awesome-markers plugin</a>"
+    "info": "<a href='https://github.com/lvoogdt/Leaflet.awesome-markers' target='_blank'>the example uses the awesome-markers plugin</a>",
+    "done": "fasle"
   },
   {
     "link": "image-icons-prev-next",
-    "text": "image icons prev next"
+    "text": "image icons prev next",
+    "done": "false"
   },
   {
     "link": "location",
-    "text": "location"
+    "text": "location",
+    "done": "true"
   },
   {
     "link": "multiple-tile-layers",
-    "text": "multiple tile layers"
+    "text": "multiple tile layers",
+    "done": "true"
   },
   {
     "link": "marker-draggable-on-a-click",
-    "text": "marker draggable on a click"
+    "text": "marker draggable on a click",
+    "done": "true"
   },
   {
     "link": "story-maps-IntersectionObserver",
     "text": "story map with IntersectionObserver",
-    "info": "All texts and photos come from <a href='https://warsawtour.pl/warszawa-w-3-dni/' target='_blank'>warsawtour.pl</a>"
+    "info": "All texts and photos come from <a href='https://warsawtour.pl/warszawa-w-3-dni/' target='_blank'>warsawtour.pl</a>",
+    "done": "false"
   },
   {
     "link": "enlarge-a-polygon-box-by-5-percent",
     "text": "enlarge a polygon box by 5% [turfjs]",
-    "info": "Advanced geospatial analysis for browsers and Node.js <a href='https://turfjs.org/' target='_blank'>turfjs</a>"
+    "info": "Advanced geospatial analysis for browsers and Node.js <a href='https://turfjs.org/' target='_blank'>turfjs</a>",
+    "done": "false"
   },
   {
     "link": "part-of-the-common",
     "text": "part of the common [turfjs]",
-    "info": "Advanced geospatial analysis for browsers and Node.js <a href='https://turfjs.org/' target='_blank'>turfjs</a>"
+    "info": "Advanced geospatial analysis for browsers and Node.js <a href='https://turfjs.org/' target='_blank'>turfjs</a>",
+    "done": "false"
   },
   {
     "link": "coordinates-of-the-center-of-the-visible-map",
-    "text": "coordinates of the center of the visible map"
+    "text": "coordinates of the center of the visible map",
+    "done": "true"
   },
   {
     "link": "distance-between-cities-on-map",
     "text": "distance between cities on map",
-    "info": "<a href='https://github.com/tomik23/autocomplete' target='_blank'>the example uses the autocomplete</a>"
+    "info": "<a href='https://github.com/tomik23/autocomplete' target='_blank'>the example uses the autocomplete</a>",
+    "done": "false"
   },
   {
     "link": "back-to-home-button",
-    "text": "back to home button"
+    "text": "back to home button",
+    "done": "true"
   }
 ]
