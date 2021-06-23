@@ -28,16 +28,16 @@
     "image-instead-of-map-js.js": "/react-leaflet-examples/static/js/image-instead-of-map-js.003035eb.chunk.js",
     "location-js.js": "/react-leaflet-examples/static/js/location-js.ff3cd838.chunk.js",
     "main.css": "/react-leaflet-examples/static/css/main.9dd47dd2.chunk.css",
-    "main.js": "/react-leaflet-examples/static/js/main.c685b54f.chunk.js",
+    "main.js": "/react-leaflet-examples/static/js/main.25786ca9.chunk.js",
     "many-markers-js.js": "/react-leaflet-examples/static/js/many-markers-js.fa44495d.chunk.js",
     "marker-draggable-on-a-click-js.js": "/react-leaflet-examples/static/js/marker-draggable-on-a-click-js.cfcc792e.chunk.js",
     "marker-grouping-markercluster-plugin-js.js": "/react-leaflet-examples/static/js/marker-grouping-markercluster-plugin-js.ab70cb96.chunk.js",
-    "markers-60K-js.js": "/react-leaflet-examples/static/js/markers-60K-js.22a55f0e.chunk.js",
+    "markers-60K-js.js": "/react-leaflet-examples/static/js/markers-60K-js.ed313634.chunk.js",
     "matching-all-markers-to-the-map-view-js.js": "/react-leaflet-examples/static/js/matching-all-markers-to-the-map-view-js.56aad865.chunk.js",
     "maxBound-map-restricts-the-view-js.js": "/react-leaflet-examples/static/js/maxBound-map-restricts-the-view-js.0aa489bd.chunk.js",
     "multiple-tile-layers-js.js": "/react-leaflet-examples/static/js/multiple-tile-layers-js.ab93a049.chunk.js",
     "polyline-js.js": "/react-leaflet-examples/static/js/polyline-js.c35e1a79.chunk.js",
-    "runtime-main.js": "/react-leaflet-examples/static/js/runtime-main.a48dd9a6.js",
+    "runtime-main.js": "/react-leaflet-examples/static/js/runtime-main.2c8ace5f.js",
     "simple-map-js.js": "/react-leaflet-examples/static/js/simple-map-js.21a87b35.chunk.js",
     "svg-markers-width-legends-js.js": "/react-leaflet-examples/static/js/svg-markers-width-legends-js.3d643d65.chunk.js",
     "tileLayer-js.js": "/react-leaflet-examples/static/js/tileLayer-js.4a46f0cf.chunk.js",
@@ -50,9 +50,9 @@
     "static/media/pin.5c3f4112.png": "/react-leaflet-examples/static/media/pin.5c3f4112.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.a48dd9a6.js",
+    "static/js/runtime-main.2c8ace5f.js",
     "static/js/38.343f9915.chunk.js",
     "static/css/main.9dd47dd2.chunk.css",
-    "static/js/main.c685b54f.chunk.js"
+    "static/js/main.25786ca9.chunk.js"
   ]
 }
