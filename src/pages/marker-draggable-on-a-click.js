@@ -12,11 +12,14 @@ const MapWrapper = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={center} draggable={draggable} eventHandlers={{
-        click() {
-          setDraggable(true)
-        }
-      }}>
+      <Marker
+        position={center}
+        draggable={draggable}
+        eventHandlers={{
+          click() {
+            setDraggable(true)
+          }
+        }}>
         <Popup>Center Warsaw</Popup>
       </Marker>
 

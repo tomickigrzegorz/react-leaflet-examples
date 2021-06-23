@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Marker, useMap, MapContainer, LayerGroup, TileLayer, Popup } from 'react-leaflet';
+import { Marker, useMap, MapContainer, TileLayer, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
 const center = [52.22977, 21.01178];
 
-function removeMarker(index, map, legend) {
+const removeMarker = (index, map, legend) => {
   map.eachLayer((layer) => {
     if (layer instanceof L.Marker) {
       if (layer.options.uniceid !== index) return;
@@ -16,7 +16,7 @@ function removeMarker(index, map, legend) {
   return null;
 }
 
-function showMarkers(legend, markers, map) {
+const showMarkers = (map, legend, markers) => {
   return markers.map((marker, index) => {
     return <Marker
       key={index}
@@ -38,7 +38,7 @@ function showMarkers(legend, markers, map) {
 }
 
 
-function MyMarkers() {
+const MyMarkers = () => {
   const map = useMap();
   const [marker, setMarker] = useState([])
   const [legend, setLegend] = useState(null)
@@ -65,7 +65,7 @@ function MyMarkers() {
 
   }, [map]);
 
-  return marker?.length <= 0 ? null : showMarkers(legend, marker, map);
+  return marker?.length <= 0 ? null : showMarkers(map, legend, marker);
 
 }
 

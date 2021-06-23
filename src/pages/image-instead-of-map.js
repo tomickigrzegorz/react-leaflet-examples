@@ -4,11 +4,6 @@ import { MapContainer, useMap, ImageOverlay } from 'react-leaflet';
 
 const center = [52.22977, 21.01178];
 
-const bounds = [
-  [50, 50], // padding
-  [847, 1280], // image dimensions
-];
-
 function OverlayImage() {
   const map = useMap();
   const getBounds = map.getBounds();

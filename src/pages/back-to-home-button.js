@@ -10,7 +10,6 @@ function HomeButton() {
 
   useMapEvent({
     dragend(e) {
-      // const mapCenter = map.getCenter();
       const { lat: latD, lng: lngD } = defaultMapCenter;
       const { lat, lng } = map.getCenter();
       if ([lat, lng] !== [latD.toFixed(5) * 1, lngD.toFixed(5) * 1]) {

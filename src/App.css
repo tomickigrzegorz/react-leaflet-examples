@@ -53,6 +53,7 @@ a.active-menu {
 
 .not-clickable {
   text-decoration: line-through;
+  color: #b9b9b9;
 }
 
 .leaflet-container {
@@ -72,6 +73,74 @@ a.active-menu {
   grid-template-columns: 350px 1fr;
   grid-template-rows: 100px;
   gap: 30px;
+}
+
+header {
+  grid-area: head;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+  max-width: 1000px;
+  width: 100%;
+  padding-right: 30px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-rows: 70px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "nav"
+      "main";
+  }
+
+  nav {
+    height: auto;
+    text-align: center;
+    padding: 0 10px;
+    background-color: #f1f1f1;
+  }
+
+  ul li {
+    display: inline-block;
+    width: auto;
+    padding: 3px 2px;
+    border-radius: 5px;
+    margin: 0;
+  }
+  ul li:hover {
+    background: #d6d6d6;
+  }
+  main {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  ul a {
+    display: inline-block;
+    width: auto;
+    padding: 0 3px;
+    border-radius: 5px;
+    margin: 0;
+  }
+
+  ul {
+    height: auto;
+    text-align: center;
+    padding: 0 20px;
+    background-color: #f1f1f1;
+  }
+  .not-clickable {
+    padding: 0;
+  }
 }
 
 .title {

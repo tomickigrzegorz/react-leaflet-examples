@@ -14,7 +14,7 @@ function setRentacle(bounds) {
       key={index}
       bounds={bound}
       color={getRandomColor()}
-      weight={20}
+      weight={10}
       fillOpacity={0.1} />
   ));
 }

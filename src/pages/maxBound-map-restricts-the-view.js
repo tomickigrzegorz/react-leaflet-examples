@@ -6,14 +6,28 @@ const center = [52.22977, 21.01178];
 
 const MapWrapper = () => {
   const [map, setMap] = useState(null)
+
   useEffect(() => {
     if (map) {
-      const southWest = new L.LatLng(52.228509, 21.008348);
-      const northEast = new L.LatLng(52.231029, 21.01521);
-      const bounds = new L.LatLngBounds(southWest, northEast);
 
-      map.setMaxBounds(map.getBounds());
+      const info = L.DomUtil.create('div', 'legend');
 
+      const positon = L.Control.extend({
+        options: {
+          position: 'bottomleft'
+        },
+
+        onAdd: function () {
+          info.textContent = 'move the map';
+          return info;
+        }
+      })
+
+      map.addControl(new positon());
+
+      const bounds = map.getBounds();
+
+      map.setMaxBounds(bounds);
       map.fitBounds(bounds, { reset: true });
     }
 

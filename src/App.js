@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Redirect, Route, useParams, Switch } from 'react-router-dom';
+import GithubCorner from './components/GithubCorner';
 import "./App.css";
 
 import Header from './components/Header';
@@ -34,6 +35,7 @@ function App() {
           </Suspense>
         </main>
       </div>
+      <GithubCorner />
     </Router>
   );
 }
