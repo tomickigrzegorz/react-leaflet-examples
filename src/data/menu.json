@@ -130,7 +130,7 @@
     "link": "markers-60K",
     "text": "markers 60K",
     "info": "60 thousand markers. For better optimization change the map to canvas + use markerCluster plugin + and change the marker to circleMarker (canvas)",
-    "done": "false"
+    "done": "true"
   },
   {
     "link": "fullscreen",

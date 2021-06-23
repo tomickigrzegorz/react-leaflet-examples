@@ -1,15 +1,32 @@
 import React from 'react';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer, Tooltip, CircleMarker } from 'react-leaflet';
+import L from 'leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
+
+import 'react-leaflet-markercluster/dist/styles.min.css';
 
 const center = [52.22977, 21.01178];
 
+function getRandomLatLng() {
+  return [120 * Math.random(), -180 + 360 * Math.random()];
+}
+
 const MapWrapper = () => {
   return (
-    <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
+    <MapContainer preferCanvas={true} className="markercluster-map" center={center} zoom={2} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
+      <MarkerClusterGroup>
+        {[...Array(13000)].map((_, i) =>
+          <CircleMarker renderer={L.canvas({ padding: 0.5 })} key={i} center={getRandomLatLng()} radius={10}>
+            <Tooltip>marker {i}</Tooltip>
+          </CircleMarker>
+        )}
+      </MarkerClusterGroup>
+
     </MapContainer>
   )
 }

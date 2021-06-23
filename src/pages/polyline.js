@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
+import { MapContainer, TileLayer, Popup, Polyline } from 'react-leaflet';
 
 const center = [52.22999, 21.01258];
 
