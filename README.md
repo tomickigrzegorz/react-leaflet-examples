@@ -30,7 +30,7 @@ Here is a working live demo : https://tomik23.github.io/react-leaflet-examples/
 ~~29 linked-view~~  
 28 adding-map-description  
 27 fullscreen  
-~~26 markers-60K~~  
+26 markers-60K   
 25 fitBounds-with-padding  
 24 polyline  
 23 custom-marker-and-popup  
