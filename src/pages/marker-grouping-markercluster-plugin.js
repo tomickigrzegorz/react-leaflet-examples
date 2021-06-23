@@ -4,6 +4,8 @@ import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 import 'react-leaflet-markercluster/dist/styles.min.css';
 
+const center = [52.22977, 21.01178];
+
 const points = [
   {
     lat: 52.230020586193795,
@@ -28,9 +30,8 @@ const points = [
 ];
 
 const MapWrapper = () => {
-  const position = [52.22977, 21.01178];
   return (
-    <MapContainer className="markercluster-map" center={position} zoom={15} scrollWheelZoom={false}>
+    <MapContainer className="markercluster-map" center={center} zoom={15} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
