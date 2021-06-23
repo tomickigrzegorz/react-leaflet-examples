@@ -5,6 +5,10 @@
 
 > The full version (vanilla-js) with all working examples can be found at this link [leaflet-examples](https://github.com/tomik23/leaflet-examples).
 
+## Demo
+Here is a working live demo : https://tomik23.github.io/leaflet-examples/
+
+
 <img src="./src/data/leaflet.png">
 
 > Work in progress :smiley: Suggestions welcome :bulb:.

@@ -8,7 +8,7 @@ import Menu from './components/Menu';
 
 function Child() {
   let { id } = useParams();
-  const Component = lazy(() => import(/* webpackChunkName: "[request]" */ `./pages/${id}`).catch(() => import('./components/NotFound')));
+  const Component = lazy(() => import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`).catch(() => import('./components/NotFound.js')));
 
   return (
     <>
@@ -20,7 +20,7 @@ function Child() {
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="grid">
         <Menu />
         <Header />
