@@ -28,7 +28,7 @@
     "image-instead-of-map-js.js": "/react-leaflet-examples/static/js/image-instead-of-map-js.003035eb.chunk.js",
     "location-js.js": "/react-leaflet-examples/static/js/location-js.ff3cd838.chunk.js",
     "main.css": "/react-leaflet-examples/static/css/main.9dd47dd2.chunk.css",
-    "main.js": "/react-leaflet-examples/static/js/main.25786ca9.chunk.js",
+    "main.js": "/react-leaflet-examples/static/js/main.c685b54f.chunk.js",
     "many-markers-js.js": "/react-leaflet-examples/static/js/many-markers-js.fa44495d.chunk.js",
     "marker-draggable-on-a-click-js.js": "/react-leaflet-examples/static/js/marker-draggable-on-a-click-js.cfcc792e.chunk.js",
     "marker-grouping-markercluster-plugin-js.js": "/react-leaflet-examples/static/js/marker-grouping-markercluster-plugin-js.ab70cb96.chunk.js",
@@ -53,6 +53,6 @@
     "static/js/runtime-main.a48dd9a6.js",
     "static/js/38.343f9915.chunk.js",
     "static/css/main.9dd47dd2.chunk.css",
-    "static/js/main.25786ca9.chunk.js"
+    "static/js/main.c685b54f.chunk.js"
   ]
 }
