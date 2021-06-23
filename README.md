@@ -3,13 +3,13 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+> The full version (vanilla-js) with all working examples can be found at this link [leaflet-examples](https://github.com/tomik23/leaflet-examples).
+
 <img src="./src/data/leaflet.png">
 
 > Work in progress :smiley: Suggestions welcome :bulb:.
 
 > The crossed-out titles will be supplemented over time;)
-
-> The full version (vanilla-js) with all working examples can be found at this link [leaflet-examples](https://github.com/tomik23/leaflet-examples).
 
 41 back-to-home-button  
 ~~40 distance-between-cities-on-map~~  
