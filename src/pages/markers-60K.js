@@ -20,7 +20,7 @@ const MapWrapper = () => {
       />
 
       <MarkerClusterGroup>
-        {[...Array(13000)].map((_, i) =>
+        {[...Array(60000)].map((_, i) =>
           <CircleMarker renderer={L.canvas({ padding: 0.5 })} key={i} center={getRandomLatLng()} radius={10}>
             <Tooltip>marker {i}</Tooltip>
           </CircleMarker>
