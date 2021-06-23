@@ -9,7 +9,7 @@
 
 > Work in progress :smiley: Suggestions welcome :bulb:.
 
-> The crossed-out titles will be supplemented over time;)
+> The crossed-out titles will be supplemented over time :smiley:
 
 41 back-to-home-button  
 ~~40 distance-between-cities-on-map~~  
