@@ -28,7 +28,7 @@ function App() {
         <main id="section-example">
           <Suspense fallback={<div>Page is Loading...</div>}>
             <Switch>
-              <Route exact path="/">
+              <Route exact path={process.env.PUBLIC_URL + '/'}>
                 <Redirect to={process.env.PUBLIC_URL + '/simple-map'} />
               </Route>
               <Route path={process.env.PUBLIC_URL + '/:id'} children={<Child />} />
