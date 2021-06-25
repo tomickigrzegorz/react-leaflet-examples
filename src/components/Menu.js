@@ -1,10 +1,19 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import menu from '../data/menu.json';
 
 const Menu = () => {
-  const [id, setId] = useState('');
+  const [id, setId] = useState(0);
+
+  useEffect(() => {
+    const idChecked = Number(localStorage.getItem("id") || 0)
+    setId(idChecked)
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("id", id);
+  }, [id])
 
   return (
     <nav>
@@ -14,7 +23,7 @@ const Menu = () => {
             {item.done === 'true' &&
               <Link
                 onClick={() => setId(index)}
-                to={item.link}>
+                to={process.env.PUBLIC_URL + '/' + item.link}>
                 {item.text}
               </Link>
             }
