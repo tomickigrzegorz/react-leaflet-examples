@@ -52,7 +52,7 @@ maxBound-map-restricts-the-view
 multiple-tile-layers  
 part-of-the-common  
 polyline  
-scale  
+show scale  
 simple-map  
 ~~story-maps-IntersectionObserver~~  
 svg-markers-width-legends  
