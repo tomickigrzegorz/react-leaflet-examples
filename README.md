@@ -15,44 +15,44 @@ Here is a working live demo : https://tomik23.github.io/react-leaflet-examples/
 
 > The crossed-out titles will be supplemented over time :smiley:
 
-41 back-to-home-button  
-~~40 distance-between-cities-on-map~~  
-39 coordinates-of-the-center-of-the-visible-map  
-~~38 part-of-the-common~~  
-~~37 enlarge-a-polygon-box-by-5%~~  
-~~36 story-maps-IntersectionObserver~~  
-35 marker-draggable-on-a-click  
-34 multiple-tile-layers  
-33 location  
-~~32 image-icons-prev-next~~  
-~~31 awesome-markers~~  
-~~30 mini-map~~  
-~~29 linked-view~~  
-28 adding-map-description  
-27 fullscreen  
-26 markers-60K   
-25 fitBounds-with-padding  
-24 polyline  
-23 custom-marker-and-popup  
-22 center-map-when-click-marker  
-~~21 geocoding-addresses-search-engine-outside-the-map~~   
-20 maxBound-map-restricts-the-view  
-19 custom-button  
-18 add-move-and-delete-marker  
-~~17 TileLayer~~  
-16 geoJson-extended-action   
-15 geoJson-simple  
-14 dragable-markers  
-13 svg-markers-width-legends  
-12 controling-polygons  
-11 controlling-the-map-from-outside-the-map  
-10 matching-all-markers-to-the-map-view    
-09 marker-grouping-markercluster-plugin  
-08 controlling-different-groups-of-markers  
-07 image-instead-of-map  
-06 coordinates-of-the-visible-map  
-05 coordinates-after-clicking-on-the-map  
-04 many-markers  
-03 adding-one-marker  
-02 changing-locate-zoom-control  
-01 simple-map  
+add-move-and-delete-marker  
+adding-map-description  
+adding-one-marker  
+~~awesome-markers~~  
+back-to-home-button  
+center-map-when-click-marker  
+changing-locate-zoom-control  
+controling-polygons  
+controlling-different-groups-of-markers  
+controlling-the-map-from-outside-the-map  
+coordinates-after-clicking-on-the-map  
+coordinates-of-the-center-of-the-visible-map  
+coordinates-of-the-visible-map  
+custom-button  
+custom-marker-and-popup  
+~~distance-between-cities-on-map~~  
+dragable-markers  
+enlarge-a-polygon-box-by-5%  
+fitBounds-with-padding  
+fullscreen  
+~~geocoding-addresses-search-engine-outside-the-map~~   
+geoJson-extended-action   
+geoJson-simple  
+~~image-icons-prev-next~~  
+image-instead-of-map  
+~~linked-view~~  
+location  
+many-markers  
+marker-draggable-on-a-click  
+marker-grouping-markercluster-plugin  
+markers-60K   
+matching-all-markers-to-the-map-view    
+maxBound-map-restricts-the-view  
+~~mini-map~~  
+multiple-tile-layers  
+part-of-the-common  
+polyline  
+simple-map  
+~~story-maps-IntersectionObserver~~  
+svg-markers-width-legends  
+~~TileLayer~~  
