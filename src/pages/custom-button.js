@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
@@ -18,7 +19,6 @@ const CustomButton = ({ map }) => {
         const btn = L.DomUtil.create('button');
         btn.title = 'pooooooooooooop rotation';
         btn.textContent = '💩';
-        btn.classname = 'pooooo';
         btn.setAttribute(
           'style',
           'background-color: transparent; width: 30px; height: 30px; border: none; display: flex; cursor: pointer; justify-content: center; font-size: 2rem;'
@@ -62,10 +62,7 @@ const MapWrapper = () => {
       scrollWheelZoom={false}
     >
 
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer {...tileLayer} />
 
       <CustomButton map={map} />
 

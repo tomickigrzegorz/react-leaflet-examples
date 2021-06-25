@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import L from 'leaflet';
 import geojson from '../data/wojewodztwa-medium.geojson.json'
+import tileLayer from '../util/tileLayer';
 
 const center = [52, 19.2];
 
@@ -29,11 +30,14 @@ const MapWrapper = () => {
   }, [map]);
 
   return (
-    <MapContainer whenCreated={setMap} center={center} zoom={6} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <MapContainer
+      whenCreated={setMap}
+      center={center}
+      zoom={6}
+      scrollWheelZoom={false}
+    >
+
+      <TileLayer {...tileLayer} />
 
       <GeoJSON data={geojson} onEachFeature={onEachFeature} />
 

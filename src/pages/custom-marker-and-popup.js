@@ -1,9 +1,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-
 import styled from "styled-components";
-
 import newMarker from '../data/pin.png'
+import tileLayer from '../util/tileLayer';
 
 const StyledPopup = styled(Popup)`
   .leaflet-popup-content-wrapper, .leaflet-popup-tip{
@@ -27,10 +26,7 @@ const customPopup = <iframe width="auto" title="Marek Grechuta" height="310" src
 const MapWrapper = () => {
   return (
     <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer {...tileLayer} />
 
       <Marker icon={pointerIcon} position={center}>
         <StyledPopup>

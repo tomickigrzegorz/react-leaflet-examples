@@ -1,5 +1,6 @@
 import { MapContainer, Popup, FeatureGroup, TileLayer, Marker, LayersControl, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
+import tileLayer from '../util/tileLayer';
 
 const pointsA = [
   { lat: 52.230020586193795, lng: 21.01083755493164, title: 'point A1' },
@@ -46,10 +47,9 @@ const MapWrapper = () => {
   return (
     <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
       <LayersControl position="topright">
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+
+        <TileLayer {...tileLayer} />
+
         <LayersControl.Overlay name="point A">
           <FeatureGroup>
             {pointsA.map(({ lat, lng, title }, index) => (

@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet-fullscreen/dist/Leaflet.fullscreen.js';
 import 'leaflet-fullscreen/dist/leaflet.fullscreen.css';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
@@ -13,10 +14,7 @@ const MapWrapper = () => {
       scrollWheelZoom={false}
     >
 
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer {...tileLayer} />
 
     </MapContainer>
   )

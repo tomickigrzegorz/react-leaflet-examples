@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
@@ -39,10 +40,7 @@ const MapWrapper = () => {
       scrollWheelZoom={false}
     >
 
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer {...tileLayer} />
 
       <Legend map={map} />
     </MapContainer>

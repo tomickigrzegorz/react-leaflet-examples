@@ -1,8 +1,8 @@
 import { MapContainer, TileLayer, CircleMarker } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
-
 import 'react-leaflet-markercluster/dist/styles.min.css';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
@@ -17,12 +17,9 @@ const MapWrapper = () => {
       className="markercluster-map"
       center={center}
       zoom={2}
-      scrollWheelZoom={true}
     >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+
+      <TileLayer {...tileLayer} />
 
       <MarkerClusterGroup
         spiderfyDistanceMultiplier={1}
@@ -30,7 +27,11 @@ const MapWrapper = () => {
       >
 
         {[...Array(60000)].map((_, i) =>
-          <CircleMarker renderer={L.canvas({ padding: 0.5 })} key={i} center={getRandomLatLng()} />
+          <CircleMarker
+            renderer={L.canvas({ padding: 0.5 })}
+            key={i}
+            center={getRandomLatLng()}
+          />
         )}
       </MarkerClusterGroup>
 

@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Popup, Polyline } from 'react-leaflet';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.2302, 21.01258];
 
@@ -16,10 +17,8 @@ const points = [
 const MapWrapper = () => {
   return (
     <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+
+      <TileLayer {...tileLayer} />
 
       <Polyline
         color={'red'}

@@ -56,9 +56,10 @@ ul a,
   color: #b9b9b9;
 }
 
-.felx {
+.info-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 small {

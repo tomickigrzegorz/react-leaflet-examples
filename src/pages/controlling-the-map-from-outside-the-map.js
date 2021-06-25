@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { MapContainer, useMap, TileLayer, Marker, Popup } from 'react-leaflet';
 import styled from 'styled-components';
+import tileLayer from '../util/tileLayer';
 
 const MarkersList = styled.div`
   display: flex;
@@ -102,10 +103,7 @@ const MapWrapper = () => {
   return (
     <>
       <MapContainer center={center} zoom={16} scrollWheelZoom={false}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <TileLayer {...tileLayer} />
 
         <MyMarkers selectedIndex={selected} data={points} />
 

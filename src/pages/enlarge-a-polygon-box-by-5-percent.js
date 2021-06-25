@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, useMap, TileLayer, Polyline } from 'react-leaflet';
 import { polygon, transformScale } from '@turf/turf';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 19.01178];
 
@@ -50,10 +51,7 @@ const MapWrapper = () => {
       center={center} zoom={6}
       scrollWheelZoom={false}
     >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+      <TileLayer {...tileLayer} />
 
       <MyCountry />
 

@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 
 import 'react-leaflet-markercluster/dist/styles.min.css';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
@@ -30,11 +31,14 @@ const points = [
 
 const MapWrapper = () => {
   return (
-    <MapContainer className="markercluster-map" center={center} zoom={15} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <MapContainer
+      className="markercluster-map"
+      center={center}
+      zoom={15}
+      scrollWheelZoom={false}
+    >
+
+      <TileLayer {...tileLayer} />
 
       <MarkerClusterGroup>
         {points.map(({ lat, lng, title }, index) => (

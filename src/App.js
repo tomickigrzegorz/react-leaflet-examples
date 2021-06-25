@@ -28,7 +28,7 @@ const Child = ({ info }) => {
   const LoadComponent = lazy(() => import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`).catch(() => import('./components/NotFound.js')));
 
   const ShowSource = () => (
-    <div className="flex">
+    <div className="info-container">
       <small>
         <a target="_blank" rel="noreferrer" href={address + id + ".js"}>sources</a>
       </small>

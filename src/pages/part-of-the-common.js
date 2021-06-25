@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useMap, MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import { circle, intersect } from '@turf/turf';
+import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
@@ -53,11 +54,9 @@ const Intersection = () => {
 
 const MapWrapper = () => {
   return (
-    <MapContainer center={center} zoom={18} scrollWheelZoom={true}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
+    <MapContainer center={center} zoom={18}>
+
+      <TileLayer {...tileLayer} />
 
       <Intersection />
 

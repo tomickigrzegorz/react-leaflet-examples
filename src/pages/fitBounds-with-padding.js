@@ -2,6 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import { MapContainer, TileLayer, ZoomControl, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import styled from 'styled-components';
+import tileLayer from '../util/tileLayer';
 
 const Wrapper = styled.div`
   position: relative;
@@ -65,12 +66,16 @@ const MapWrapper = () => {
       <Info ref={infoRef}>
         {infoText}
       </Info>
-      <MapContainer whenCreated={setMap} center={center} zoom={18} zoomControl={false} scrollWheelZoom={false}>
+      <MapContainer
+        whenCreated={setMap}
+        center={center} zoom={18}
+        zoomControl={false}
+        scrollWheelZoom={false}
+      >
+
         <ZoomControl position={'topright'} />
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+
+        <TileLayer {...tileLayer} />
 
         <Marker position={center}>
           <Popup>Center Warsaw</Popup>
