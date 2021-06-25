@@ -3,16 +3,16 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import menu from '../data/menu.json';
 
-const Menu = () => {
+const Menu = ({ parentCallback }) => {
   const [id, setId] = useState(0);
 
   useEffect(() => {
-    const idChecked = Number(localStorage.getItem("id") || 0)
+    const idChecked = Number(localStorage.getItem('id') || 0)
     setId(idChecked)
   }, [])
 
   useEffect(() => {
-    localStorage.setItem("id", id);
+    localStorage.setItem('id', id);
   }, [id])
 
   return (
@@ -22,7 +22,10 @@ const Menu = () => {
           <li key={item.link} className={index === id ? 'active' : ''}>
             {item.done === 'true' &&
               <Link
-                onClick={() => setId(index)}
+                onClick={() => {
+                  setId(index)
+                  parentCallback(item.info)
+                }}
                 to={process.env.PUBLIC_URL + '/' + item.link}>
                 {item.text}
               </Link>

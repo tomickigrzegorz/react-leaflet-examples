@@ -1,7 +1,8 @@
-import React from 'react';
-import styled from "styled-components";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+
+import styled from "styled-components";
+
 import newMarker from '../data/pin.png'
 
 const StyledPopup = styled(Popup)`

@@ -29,7 +29,6 @@ const MyCountry = () => {
 
     const { coordinates } = scalePoly.geometry;
 
-    console.log(coordinates);
     setCoordinates(coordinates);
 
   }, [map])

@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapContainer, Polygon, FeatureGroup, TileLayer, LayersControl, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
 

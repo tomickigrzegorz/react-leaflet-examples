@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, useMap, Marker, Popup, Circle } from 'react-leaflet';
 
 const center = [52.22977, 21.01178];

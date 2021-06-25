@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapContainer, TileLayer, CircleMarker } from 'react-leaflet';
 import L from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';

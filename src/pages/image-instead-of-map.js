@@ -1,5 +1,4 @@
 import { CRS } from 'leaflet';
-import React from 'react';
 import { MapContainer, ImageOverlay, useMap } from 'react-leaflet';
 
 const center = [52.22977, 21.01178];

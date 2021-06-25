@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Marker, MapContainer, TileLayer, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
@@ -6,10 +6,11 @@ const center = [52.22977, 21.01178];
 
 const removeMarker = (index, map, legend) => {
   map.eachLayer((layer) => {
-    if (layer instanceof L.Marker) {
-      if (layer.options.uniceid !== index) return;
-      map.removeLayer(layer);
-      legend.textContent = 'goodbye marker 💩'
+    if (layer.options && layer.options.pane === "markerPane") {
+      if (layer.options.uniceid === index) {
+        map.removeLayer(layer);
+        legend.textContent = 'goodbye marker 💩';
+      }
     }
   });
 }

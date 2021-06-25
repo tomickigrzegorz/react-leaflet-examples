@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapContainer, Popup, FeatureGroup, TileLayer, Marker, LayersControl, useMapEvent } from 'react-leaflet';
 import L from 'leaflet';
 

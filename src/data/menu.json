@@ -82,7 +82,7 @@
   {
     "link": "tileLayer",
     "text": "tileLayer",
-    "done": "false"
+    "done": "true"
   },
   {
     "link": "add-move-and-delete-marker",
@@ -212,6 +212,11 @@
   {
     "link": "back-to-home-button",
     "text": "back to home button",
+    "done": "true"
+  },
+  {
+    "link": "show-scale",
+    "text": "show scale",
     "done": "true"
   }
 ]

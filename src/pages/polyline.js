@@ -1,7 +1,6 @@
-import React from 'react';
 import { MapContainer, TileLayer, Popup, Polyline } from 'react-leaflet';
 
-const center = [52.22999, 21.01258];
+const center = [52.2302, 21.01258];
 
 const points = [
   [52.2308124251888, 21.011003851890568],

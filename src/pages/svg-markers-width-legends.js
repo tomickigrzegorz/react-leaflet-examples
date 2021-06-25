@@ -1,6 +1,6 @@
-import L from 'leaflet';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 
 const center = [52.242, 21.017532];
 

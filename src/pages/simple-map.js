@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 const center = [52.22977, 21.01178];
