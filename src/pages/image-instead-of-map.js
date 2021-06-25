@@ -1,14 +1,22 @@
 import { CRS } from 'leaflet';
 import { MapContainer, ImageOverlay, useMap } from 'react-leaflet';
 
-const center = [52.22977, 21.01178];
+let imageBounds = [
+  [50, 50], // padding
+  [847, 1280], // image dimensions
+];
 
 const OverlayImage = () => {
   const map = useMap();
-  const getBounds = map.getBounds();
+
+  map.fitBounds(imageBounds);
 
   return (
-    <ImageOverlay bounds={getBounds} url={'https://tomik23.github.io/leaflet-examples/static/factory_UML.png'} transparent={true} />
+    <ImageOverlay
+      bounds={imageBounds}
+      url={'https://tomik23.github.io/leaflet-examples/static/factory_UML.png'}
+      transparent={true}
+    />
   );
 }
 
@@ -16,10 +24,8 @@ const MapWrapper = () => {
   return (
     <MapContainer
       crs={CRS.Simple}
-      minZoom={-4}
       maxZoom={1}
-      center={center}
-      zoom={18}
+      minZoom={-4}
       scrollWheelZoom={false}>
 
       <OverlayImage />
