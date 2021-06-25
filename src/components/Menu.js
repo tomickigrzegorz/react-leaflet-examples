@@ -26,7 +26,7 @@ const Menu = ({ parentCallback }) => {
                   setId(index)
                   parentCallback(item.info)
                 }}
-                to={process.env.PUBLIC_URL + '/' + item.link}>
+                to={'/' + item.link}>
                 {item.text}
               </Link>
             }
