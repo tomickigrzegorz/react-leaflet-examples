@@ -13,12 +13,11 @@ function getVoivodeshipName(feature, layer) {
 
 function onEachFeature(feature, layer) {
   layer.on('mouseover', function (e) {
-    // bindPopup
+
     getVoivodeshipName(feature, layer);
-    // show voivodeship
-    // addTextToDiv(feature.properties.nazwa);
 
     this.openPopup();
+
     // style
     this.setStyle({
       fillColor: '#eb4034',
@@ -43,17 +42,18 @@ const MapWrapper = () => {
   const [map, setMap] = useState(null);
 
   useEffect(() => {
-    if (map) {
-      const legend = L.control({ position: "bottomleft" });
+    if (!map) return;
 
-      legend.onAdd = () => {
-        const div = L.DomUtil.create("div", "legend");
-        div.innerHTML = `click/hover on polygon`;
-        return div;
-      };
+    const legend = L.control({ position: "bottomleft" });
 
-      legend.addTo(map);
-    }
+    legend.onAdd = () => {
+      const div = L.DomUtil.create("div", "legend");
+      div.innerHTML = `click/hover on polygon`;
+      return div;
+    };
+
+    legend.addTo(map);
+
   }, [map]);
 
   return (

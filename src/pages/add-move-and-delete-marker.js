@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Marker, useMap, MapContainer, TileLayer, Popup } from 'react-leaflet';
+import { Marker, MapContainer, TileLayer, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
 const center = [52.22977, 21.01178];
@@ -12,11 +12,9 @@ const removeMarker = (index, map, legend) => {
       legend.textContent = 'goodbye marker 💩'
     }
   });
-
-  return null;
 }
 
-const showMarkers = (map, legend, markers) => {
+const ShowMarkers = ({ mapContainer, legend, markers }) => {
   return markers.map((marker, index) => {
     return <Marker
       key={index}
@@ -31,53 +29,64 @@ const showMarkers = (map, legend, markers) => {
       }}
     >
       <Popup>
-        <button onClick={() => removeMarker(index, map, legend)}>delete marker 💔</button>
+        <button onClick={() => removeMarker(index, mapContainer, legend)}>delete marker 💔</button>
       </Popup>
     </Marker>
   })
 }
 
-
-const MyMarkers = () => {
-  const map = useMap();
+const MyMarkers = ({ map }) => {
   const [marker, setMarker] = useState([])
-  const [legend, setLegend] = useState(null)
+  const [legend, setLegend] = useState()
 
   useEffect(() => {
-    if (map) {
-      const legend = L.control({ position: "bottomleft" });
+    if (!map) return;
+    const legend = L.control({ position: "bottomleft" });
 
-      const div = L.DomUtil.create("div", "legend");
-      legend.onAdd = () => {
-        div.textContent = `click on the map, move the marker, click on the marker`;
-        return div;
-      };
+    const info = L.DomUtil.create("div", "legend");
 
-      legend.addTo(map);
+    legend.onAdd = () => {
+      info.textContent = `click on the map, move the marker, click on the marker`;
+      return info;
+    };
 
-      map.on('click', (e) => {
-        const { lat, lng } = e.latlng;
-        div.textContent = `new marker: ${e.latlng}`;
-        setMarker(mar => [...mar, [lat, lng]]);
-        setLegend(div);
-      })
-    }
+    legend.addTo(map);
+
+    map.on('click', (e) => {
+      const { lat, lng } = e.latlng;
+      setMarker(mar => [...mar, [lat, lng]]);
+
+      info.textContent = `new marker: ${e.latlng}`;
+      setLegend(info);
+    })
 
   }, [map]);
 
-  return marker?.length <= 0 ? null : showMarkers(map, legend, marker);
-
+  return marker.length > 0 && legend !== undefined ? (
+    <ShowMarkers
+      mapContainer={map}
+      legend={legend}
+      markers={marker} />
+  )
+    : null
 }
 
 const MapWrapper = () => {
+  const [map, setMap] = useState(null);
   return (
-    <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
+    <MapContainer
+      whenCreated={setMap}
+      center={center}
+      zoom={18}
+      scrollWheelZoom={false}
+    >
+
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <MyMarkers />
+      <MyMarkers map={map} />
 
     </MapContainer>
   )

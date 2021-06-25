@@ -32,18 +32,19 @@ const MapWrapper = () => {
   const [text, setText] = useState(null)
 
   useEffect(() => {
-    if (map) {
-      const legend = L.control({ position: "bottomleft" });
+    if (!map) return;
 
-      legend.onAdd = () => {
-        const div = L.DomUtil.create("div", "legend");
-        div.innerHTML = `click marker, move`;
-        setText(div);
-        return div;
-      };
+    const legend = L.control({ position: "bottomleft" });
 
-      legend.addTo(map);
-    }
+    legend.onAdd = () => {
+      const div = L.DomUtil.create("div", "legend");
+      div.innerHTML = `click marker, move`;
+      setText(div);
+      return div;
+    };
+
+    legend.addTo(map);
+
   }, [map]);
 
   const eventHandlers = useMemo(() => ({
@@ -60,7 +61,13 @@ const MapWrapper = () => {
       />
 
       {points.map(({ lat, lng, title }, index) => (
-        <Marker eventHandlers={eventHandlers} key={index} draggable={true} autoPan={true} position={[lat, lng]}>
+        <Marker
+          eventHandlers={eventHandlers}
+          key={index}
+          draggable={true}
+          autoPan={true}
+          position={[lat, lng]}
+        >
           <Popup>{title}</Popup>
         </Marker>
       ))}

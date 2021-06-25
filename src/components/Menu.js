@@ -1,18 +1,27 @@
-import React from 'react'
-import items from '../data/menu.json';
-import { NavLink } from 'react-router-dom';
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import menu from '../data/menu.json';
 
 const Menu = () => {
+  const [id, setId] = useState('');
+
   return (
     <nav>
       <ul>
-        {items.map((item, index) => (
-          <li key={item.link}>
+        {menu.sort((a, b) => a.text.localeCompare(b.text)).map((item, index) => (
+          <li key={item.link} className={index === id ? 'active' : ''}>
             {item.done === 'true' &&
-              <NavLink activeClassName="active-menu" to={item.link}>{index + 1}. {item.text}</NavLink>
+              <Link
+                onClick={() => setId(index)}
+                to={item.link}>
+                {item.text}
+              </Link>
             }
             {item.done === 'false' && (
-              <div className="not-clickable">{index + 1}. {item.text}</div>
+              <div className="not-clickable">
+                {item.text}
+              </div>
             )}
           </li>
         ))}

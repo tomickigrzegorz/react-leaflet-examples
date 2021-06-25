@@ -1,5 +1,5 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 const center = [52.22977, 21.01178];
 const zoom = 18;
@@ -27,38 +27,42 @@ const points = [
   },
 ];
 
-function MyMarkers(props) {
-  const map = useMap();
-  const { data } = props;
+const MyMarkers = ({ map, data }) => {
 
-  return data.map((item, index) => (
+  return data.map(({ lat, lng, title }, index) => (
     <Marker
       key={index}
-      position={{ lat: item.lat, lng: item.lng }}
+      position={{ lat, lng }}
       eventHandlers={{
         click(e) {
           const location = e.target.getLatLng();
-          setTimeout(() => {
-            map.flyToBounds([location]);
-          }, 100);
+          map.flyToBounds([location]);
         }
       }}
     >
-      <Popup>{item.title}</Popup>
+      <Popup>{title}</Popup>
     </Marker>
   ));
 }
 
 const MapWrapper = () => {
+  const [map, setMap] = useState(null)
 
   return (
-    <MapContainer center={center} zoom={zoom} scrollWheelZoom={false}>
+    <MapContainer
+      whenCreated={setMap}
+      center={center}
+      zoom={zoom}
+      scrollWheelZoom={false}
+    >
+
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <MyMarkers data={points} />
+      <MyMarkers map={map} data={points} />
+
     </MapContainer>
   )
 }

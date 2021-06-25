@@ -14,17 +14,18 @@ const MapWrapper = () => {
   const [map, setMap] = useState(null);
 
   useEffect(() => {
-    if (map) {
-      const legend = L.control({ position: "bottomleft" });
+    if (!map) return;
 
-      legend.onAdd = () => {
-        const div = L.DomUtil.create("div", "legend");
-        div.innerHTML = `click on polygon`;
-        return div;
-      };
+    const legend = L.control({ position: "bottomleft" });
 
-      legend.addTo(map);
-    }
+    legend.onAdd = () => {
+      const div = L.DomUtil.create("div", "legend");
+      div.innerHTML = `click on polygon`;
+      return div;
+    };
+
+    legend.addTo(map);
+
   }, [map]);
 
   return (

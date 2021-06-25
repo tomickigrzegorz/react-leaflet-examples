@@ -17,14 +17,16 @@ function Location() {
   }, [map])
 
 
-  return position === null ? null : (
-    <>
-      <Circle center={position} weight={2} color={'red'} fillColor={'red'} fillOpacity={0.1} radius={500}></Circle>
-      <Marker position={position}>
-        <Popup>You are here</Popup>
-      </Marker>
-    </>
-  )
+  return position
+    ? (
+      <>
+        <Circle center={position} weight={2} color={'red'} fillColor={'red'} fillOpacity={0.1} radius={500}></Circle>
+        <Marker position={position}>
+          <Popup>You are here</Popup>
+        </Marker>
+      </>
+    )
+    : null
 }
 
 const MapWrapper = () => {

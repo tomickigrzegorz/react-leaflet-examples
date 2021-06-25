@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, Rectangle, useMap, TileLayer } from 'react-leaflet';
+import { MapContainer, Rectangle, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
 
 const center = [52.22977, 21.01178];
@@ -8,7 +8,7 @@ function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`.toString();
 }
 
-function setRentacle(bounds) {
+function SetRentacle({ bounds }) {
   return bounds.map((bound, index) => (
     <Rectangle
       key={index}
@@ -24,46 +24,58 @@ function contentText(getBounds) {
   return `SouthWest: ${_southWest}, NorthEast: ${_northEast}`;
 }
 
-function Location() {
-  const map = useMap();
+const Location = ({ map }) => {
   const [bounds, setBounds] = useState([])
 
   useEffect(() => {
-    if (map) {
-      const info = L.DomUtil.create('div', 'legend');
+    if (!map) return;
 
-      const positon = L.Control.extend({
-        options: {
-          position: 'bottomleft'
-        },
+    const info = L.DomUtil.create('div', 'legend');
 
-        onAdd: function () {
-          info.innerHTML = contentText(map.getBounds());
-          return info;
-        }
-      })
+    const positon = L.Control.extend({
+      options: {
+        position: 'bottomleft'
+      },
 
-      map.addControl(new positon());
+      onAdd: function () {
+        info.innerHTML = contentText(map.getBounds());
+        return info;
+      }
+    })
 
-      map.on('moveend zoomend', () => {
-        const bounds = map.getBounds();
-        info.textContent = contentText(bounds);
-        setBounds(b => [...b, bounds])
-      });
-    }
+    map.addControl(new positon());
+
+    map.on('moveend zoomend', () => {
+      const bounds = map.getBounds();
+      info.textContent = contentText(bounds);
+      setBounds(b => [...b, bounds])
+    });
+
   }, [map])
 
-  return bounds?.length <= 0 ? null : setRentacle(bounds);
+  return bounds?.length <= 0
+    ? <SetRentacle bounds={bounds} />
+    : null;
 }
 
 const MapWrapper = () => {
+  const [map, setMap] = useState(null)
+
   return (
-    <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
+    <MapContainer
+      whenCreated={setMap}
+      center={center}
+      zoom={18}
+      scrollWheelZoom={false}
+    >
+
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Location />
+
+      <Location map={map} />
+
     </MapContainer>
   )
 }

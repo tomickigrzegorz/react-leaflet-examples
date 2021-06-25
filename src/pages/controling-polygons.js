@@ -25,7 +25,7 @@ const Place = [
   [52.22769427210073, 21.002597808837894],
 ];
 
-function ControllingGroup() {
+const ControllingGroup = () => {
   const map = useMapEvent({
     layeradd() {
       let bounds = new L.LatLngBounds();
@@ -55,19 +55,24 @@ const MapWrapper = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <LayersControl position="topright">
+
         <LayersControl.Overlay name="River">
           <FeatureGroup>
             <Polygon pathOptions={riverColor} positions={River} />
           </FeatureGroup>
         </LayersControl.Overlay>
+
         <LayersControl.Overlay name="Place">
           <FeatureGroup>
             <Polygon pathOptions={placeColor} positions={Place} />
           </FeatureGroup>
         </LayersControl.Overlay>
+
       </LayersControl>
+
       <ControllingGroup />
-    </MapContainer >
+
+    </MapContainer>
   )
 }
 

@@ -35,27 +35,28 @@ const points = [
   },
 ];
 
-function Legend({ map }) {
+const Legend = ({ map }) => {
   useEffect(() => {
-    if (map) {
-      const legend = L.control({ position: "bottomright" });
+    if (!map) return;
 
-      const rows = [];
-      legend.onAdd = () => {
-        const div = L.DomUtil.create("div", "legend");
-        colors.map((color, index) => {
-          return rows.push(`
+    const legend = L.control({ position: "bottomright" });
+
+    const rows = [];
+    legend.onAdd = () => {
+      const div = L.DomUtil.create("div", "legend");
+      colors.map((color, index) => {
+        return rows.push(`
             <div class="row">
               <i style="background: #${color}"></i>${labels[index]}
             </div>
           `)
-        })
-        div.innerHTML = rows.join('');
-        return div;
-      };
+      })
+      div.innerHTML = rows.join('');
+      return div;
+    };
 
-      legend.addTo(map);
-    }
+    legend.addTo(map);
+
   }, [map]);
 
   return null;
@@ -77,8 +78,7 @@ function customMarkerIcon(color) {
   })
 }
 
-function MyMarkers(props) {
-  const { data } = props;
+const MyMarkers = ({ data }) => {
   return data.map((item, index) => (
     <Marker
       key={index}

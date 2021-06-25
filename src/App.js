@@ -8,7 +8,8 @@ import Menu from './components/Menu';
 
 function Child() {
   let { id } = useParams();
-  const Component = lazy(() => import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`).catch(() => import('./components/NotFound.js')));
+  const Component = lazy(() => import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`)
+    .catch(() => import('./components/NotFound.js')));
 
   return (
     <>

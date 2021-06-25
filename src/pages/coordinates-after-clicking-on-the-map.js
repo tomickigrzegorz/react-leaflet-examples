@@ -4,31 +4,30 @@ import L from 'leaflet';
 
 const center = [52.22977, 21.01178];
 
-function Location() {
+function GetCoordinates() {
   const map = useMap();
 
   useEffect(() => {
-    if (map) {
-      const info = L.DomUtil.create('div', 'legend');
+    if (!map) return;
+    const info = L.DomUtil.create('div', 'legend');
 
-      const positon = L.Control.extend({
-        options: {
-          position: 'bottomleft'
-        },
+    const positon = L.Control.extend({
+      options: {
+        position: 'bottomleft'
+      },
 
-        onAdd: function () {
-          info.textContent = 'Click on map';
-          return info;
-        }
-      })
+      onAdd: function () {
+        info.textContent = 'Click on map';
+        return info;
+      }
+    })
 
-      map.on('click', (e) => {
-        info.textContent = e.latlng;
-      })
+    map.on('click', (e) => {
+      info.textContent = e.latlng;
+    })
 
-      map.addControl(new positon());
+    map.addControl(new positon());
 
-    }
   }, [map])
 
 
@@ -43,7 +42,9 @@ const MapWrapper = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Location />
+
+      <GetCoordinates />
+
     </MapContainer>
   )
 }

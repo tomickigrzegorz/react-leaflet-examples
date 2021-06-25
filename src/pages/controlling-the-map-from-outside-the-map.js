@@ -47,8 +47,7 @@ const points = [
   },
 ]
 
-function ListMarkers(props) {
-  const { onItemClick } = props;
+function ListMarkers({ onItemClick }) {
   return (
     <MarkersList>
       {points.map(({ title }, index) => (
@@ -64,8 +63,7 @@ function ListMarkers(props) {
   );
 }
 
-function MyMarkers(props) {
-  const { data, selectedIndex } = props;
+function MyMarkers({ data, selectedIndex }) {
   return data.map((item, index) => (
     <PointMarker
       key={index}
@@ -76,10 +74,9 @@ function MyMarkers(props) {
   ));
 }
 
-function PointMarker(props) {
+function PointMarker({ center, content, openPopup }) {
   const map = useMap();
   const markerRef = useRef(null);
-  const { center, content, openPopup } = props;
 
   useEffect(() => {
     if (openPopup) {
@@ -111,6 +108,7 @@ const MapWrapper = () => {
         />
 
         <MyMarkers selectedIndex={selected} data={points} />
+
       </MapContainer>
 
       <ListMarkers data={points} onItemClick={handleItemClick} />

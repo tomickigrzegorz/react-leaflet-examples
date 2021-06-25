@@ -1,45 +1,40 @@
 import React, { useEffect } from 'react';
-import { MapContainer, useMapEvents, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 
 const center = [52.22977, 21.01178];
 
-function Legend() {
+function GetCoordinates() {
   const map = useMap();
-  const div = L.DomUtil.create("div", "center-of-map-description");
 
-
-  useMapEvents({
-    dragend() {
-      const { lat, lng } = map.getCenter();
-      const zoom = map.getZoom();
-      div.innerHTML = `center: ${lat.toFixed(5)}, ${lng.toFixed(5)} | zoom: ${zoom}`;
-    },
-    zoomend() {
-      const { lat, lng } = map.getCenter();
-      const zoom = map.getZoom();
-      div.innerHTML = `center: ${lat.toFixed(5)}, ${lng.toFixed(5)} | zoom: ${zoom}`;
-    }
-  })
 
   useEffect(() => {
-    if (map) {
-      const legend = L.control({ position: "bottomleft" });
+    if (!map) return;
 
-      legend.onAdd = () => {
-        const { lat, lng } = map.getCenter();
-        const zoom = map.getZoom();
+    const legend = L.control({ position: "bottomleft" });
 
-        L.DomEvent.disableClickPropagation(div);
+    const div = L.DomUtil.create("div", "legend");
 
-        div.innerHTML = `center: ${lat.toFixed(5)}, ${lng.toFixed(5)} | zoom: ${zoom}`;
+    legend.onAdd = () => {
+      const { lat, lng } = map.getCenter();
+      const zoom = map.getZoom();
 
-        return div;
-      };
+      L.DomEvent.disableClickPropagation(div);
 
-      legend.addTo(map);
-    }
-  }, [map, div]);
+      div.innerHTML = `center: ${lat.toFixed(5)}, ${lng.toFixed(5)} | zoom: ${zoom}`;
+
+      return div;
+    };
+
+    legend.addTo(map);
+
+    map.on('dragend zoomend', () => {
+      const { lat, lng } = map.getCenter();
+      const zoom = map.getZoom();
+      div.innerHTML = `center: ${lat.toFixed(5)}, ${lng.toFixed(5)} | zoom: ${zoom}`;
+    })
+
+  }, [map]);
 
   return null;
 }
@@ -52,7 +47,7 @@ const MapWrapper = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      <Legend />
+      <GetCoordinates />
 
     </MapContainer>
   )

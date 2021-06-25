@@ -1,6 +1,8 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
+const center = [52.22977, 21.01178];
+
 const points = [
   {
     lat: 52.230020586193795,
@@ -24,22 +26,20 @@ const points = [
   },
 ];
 
-function MyMarkers(props) {
-  const { data } = props;
-  return data.map((item, index) => (
+const MyMarkers = ({ data }) => {
+  return data.map(({ lat, lng, title }, index) => (
     <Marker
       key={index}
-      position={{ lat: item.lat, lng: item.lng }}
+      position={{ lat, lng }}
     >
-      <Popup>{item.title}</Popup>
+      <Popup>{title}</Popup>
     </Marker>
   ));
 }
 
 const MapWrapper = () => {
-  const position = [52.22977, 21.01178];
   return (
-    <MapContainer center={position} zoom={18} scrollWheelZoom={false}>
+    <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

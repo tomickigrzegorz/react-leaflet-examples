@@ -22,10 +22,12 @@ const pointsB = [
 
 const center = [52.22977, 21.01178];
 
-function ControllingGroup() {
+const ControllingGroup = () => {
+
   const map = useMapEvent({
-    layeradd(e) {
+    overlayadd(e) {
       let bounds = new L.LatLngBounds();
+
       map.eachLayer(function (layer) {
         if (layer instanceof L.FeatureGroup) {
           bounds.extend(layer.getBounds());
@@ -33,7 +35,7 @@ function ControllingGroup() {
       });
 
       if (bounds.isValid()) {
-        map.fitBounds(bounds);
+        map.flyToBounds(bounds);
       }
     }
   })
@@ -70,7 +72,8 @@ const MapWrapper = () => {
       </LayersControl>
 
       <ControllingGroup />
-    </MapContainer >
+
+    </MapContainer>
   )
 }
 

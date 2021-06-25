@@ -27,9 +27,9 @@ const points = [
   },
 ];
 
-function ControllingGroup() {
+const ControllingGroup = () => {
   const map = useMapEvent({
-    layeradd(e) {
+    layeradd() {
       let bounds = new L.LatLngBounds();
       map.eachLayer(function (layer) {
         if (layer instanceof L.FeatureGroup) {

@@ -31,31 +31,31 @@ const MapWrapper = () => {
   const [map, setMap] = useState(null)
 
   useEffect(() => {
-    if (map) {
-      const ref = infoRef.current.offsetWidth;
+    if (!map) return;
 
-      const visibleMarkers = [];
-      map.eachLayer((layer) => {
-        if (layer instanceof L.Marker) {
-          visibleMarkers.push(layer);
-        }
+    const ref = infoRef.current.offsetWidth;
+
+    const visibleMarkers = [];
+    map.eachLayer((layer) => {
+      if (layer instanceof L.Marker) {
+        visibleMarkers.push(layer);
+      }
+    })
+
+    const featureGroup = L.featureGroup(visibleMarkers).getBounds()
+
+    function handleResize() {
+      map.fitBounds(featureGroup, {
+        paddingTopLeft: [ref + 10, 10]
       })
+    }
 
-      const featureGroup = L.featureGroup(visibleMarkers).getBounds()
+    handleResize();
 
-      function handleResize() {
-        map.fitBounds(featureGroup, {
-          paddingTopLeft: [ref + 10, 10]
-        })
-      }
+    window.addEventListener('resize', handleResize)
 
-      handleResize();
-
-      window.addEventListener('resize', handleResize)
-
-      return _ => {
-        window.removeEventListener('resize', handleResize)
-      }
+    return _ => {
+      window.removeEventListener('resize', handleResize)
     }
 
   }, [map])

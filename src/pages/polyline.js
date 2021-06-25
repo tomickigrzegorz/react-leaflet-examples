@@ -21,13 +21,17 @@ const MapWrapper = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
       <Polyline
         color={'red'}
-        opacity={0.5}
+        opacity={0.7}
         weight={20}
-        positions={points}>
+        positions={points}
+      >
+
         <Popup>Polygon</Popup>
       </Polyline>
+
     </MapContainer>
   )
 }

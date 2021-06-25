@@ -190,13 +190,13 @@
     "link": "enlarge-a-polygon-box-by-5-percent",
     "text": "enlarge a polygon box by 5% [turfjs]",
     "info": "Advanced geospatial analysis for browsers and Node.js <a href='https://turfjs.org/' target='_blank'>turfjs</a>",
-    "done": "false"
+    "done": "true"
   },
   {
     "link": "part-of-the-common",
     "text": "part of the common [turfjs]",
     "info": "Advanced geospatial analysis for browsers and Node.js <a href='https://turfjs.org/' target='_blank'>turfjs</a>",
-    "done": "false"
+    "done": "true"
   },
   {
     "link": "coordinates-of-the-center-of-the-visible-map",
