@@ -9,7 +9,7 @@ function getRandomColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`.toString();
 }
 
-function SetRentacle({ bounds }) {
+const SetRentacle = ({ bounds }) => {
   return bounds.map((bound, index) => (
     <Rectangle
       key={index}

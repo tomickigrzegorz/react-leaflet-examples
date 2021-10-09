@@ -1,7 +1,7 @@
-import { useRef, useEffect, useState } from 'react';
-import { MapContainer, useMap, TileLayer, Marker, Popup } from 'react-leaflet';
-import styled from 'styled-components';
-import tileLayer from '../util/tileLayer';
+import { useRef, useEffect, useState } from "react";
+import { MapContainer, useMap, TileLayer, Marker, Popup } from "react-leaflet";
+import styled from "styled-components";
+import tileLayer from "../util/tileLayer";
 
 const MarkersList = styled.div`
   display: flex;
@@ -13,8 +13,10 @@ const MarkersList = styled.div`
 `;
 
 const MarkerItem = styled.div`
+  margin-top: -10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid transparent;
   &:hover {
-    padding-bottom: 5px;
     border-bottom: 1px solid salmon;
   }
 `;
@@ -23,48 +25,50 @@ const center = [52.2295, 21.01];
 
 const points = [
   {
-    id: '1',
+    id: "1",
     lat: 52.228785157729114,
     lng: 21.006867885589603,
-    title: 'Marker 1'
+    title: "Marker 1",
   },
   {
-    id: '2',
+    id: "2",
     lat: 52.22923201880194,
     lng: 21.00897073745728,
-    title: 'Marker 2'
+    title: "Marker 2",
   },
   {
-    id: '3',
+    id: "3",
     lat: 52.22963944703663,
     lng: 21.01091265678406,
-    title: 'Marker 3'
+    title: "Marker 3",
   },
   {
-    id: '4',
+    id: "4",
     lat: 52.229928587386496,
     lng: 21.01218938827515,
-    title: 'Marker 4'
+    title: "Marker 4",
   },
-]
+];
 
-function ListMarkers({ onItemClick }) {
+const ListMarkers = ({ onItemClick }) => {
   return (
     <MarkersList>
       {points.map(({ title }, index) => (
-        <MarkerItem key={index}
-          onClick={e => {
+        <MarkerItem
+          key={index}
+          onClick={(e) => {
             e.preventDefault();
             onItemClick(index);
-          }}>
+          }}
+        >
           {title}
         </MarkerItem>
       ))}
     </MarkersList>
   );
-}
+};
 
-function MyMarkers({ data, selectedIndex }) {
+const MyMarkers = ({ data, selectedIndex }) => {
   return data.map((item, index) => (
     <PointMarker
       key={index}
@@ -73,9 +77,9 @@ function MyMarkers({ data, selectedIndex }) {
       openPopup={selectedIndex === index}
     />
   ));
-}
+};
 
-function PointMarker({ center, content, openPopup }) {
+const PointMarker = ({ center, content, openPopup }) => {
   const map = useMap();
   const markerRef = useRef(null);
 
@@ -91,7 +95,7 @@ function PointMarker({ center, content, openPopup }) {
       <Popup>{content}</Popup>
     </Marker>
   );
-}
+};
 
 const MapWrapper = () => {
   const [selected, setSelected] = useState();
@@ -106,12 +110,11 @@ const MapWrapper = () => {
         <TileLayer {...tileLayer} />
 
         <MyMarkers selectedIndex={selected} data={points} />
-
       </MapContainer>
 
       <ListMarkers data={points} onItemClick={handleItemClick} />
     </>
-  )
-}
+  );
+};
 
 export default MapWrapper;

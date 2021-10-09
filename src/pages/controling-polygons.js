@@ -1,6 +1,13 @@
-import { MapContainer, Polygon, FeatureGroup, TileLayer, LayersControl, useMapEvent } from 'react-leaflet';
-import L from 'leaflet';
-import tileLayer from '../util/tileLayer';
+import {
+  MapContainer,
+  Polygon,
+  FeatureGroup,
+  TileLayer,
+  LayersControl,
+  useMapEvent,
+} from "react-leaflet";
+import L from "leaflet";
+import tileLayer from "../util/tileLayer";
 
 const center = [52.22977, 21.01178];
 
@@ -36,24 +43,23 @@ const ControllingGroup = () => {
       });
 
       if (bounds.isValid()) {
-        map.fitBounds(bounds);
+        map.flyToBounds([bounds]);
       }
-    }
-  })
+    },
+  });
 
-  return null
-}
+  return null;
+};
 
-const riverColor = { color: 'red' }
-const placeColor = { color: 'blue' }
+const riverColor = { color: "red" };
+const placeColor = { color: "blue" };
 
 const MapWrapper = () => {
   return (
     <MapContainer center={center} zoom={18} scrollWheelZoom={false}>
       <TileLayer {...tileLayer} />
 
-      <LayersControl position="topright">
-
+      <LayersControl position="topright" collapsed={false}>
         <LayersControl.Overlay name="River">
           <FeatureGroup>
             <Polygon pathOptions={riverColor} positions={River} />
@@ -65,13 +71,11 @@ const MapWrapper = () => {
             <Polygon pathOptions={placeColor} positions={Place} />
           </FeatureGroup>
         </LayersControl.Overlay>
-
       </LayersControl>
 
       <ControllingGroup />
-
     </MapContainer>
-  )
-}
+  );
+};
 
 export default MapWrapper;

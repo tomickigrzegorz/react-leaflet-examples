@@ -1,4 +1,5 @@
 # :maple_leaf: react-leaflet-examples
+
 **react-leaflet-examples** a collection of examples of leaflet map usage
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -6,8 +7,8 @@
 > The full version (vanilla-js) with all working examples can be found at this link [leaflet-examples](https://github.com/tomik23/leaflet-examples).
 
 ## Demo
-Here is a working live demo : https://tomik23.github.io/react-leaflet-examples/
 
+Here is a working live demo : https://tomik23.github.io/react-leaflet-examples/
 
 <img src="./src/data/leaflet.png">
 
@@ -35,18 +36,19 @@ dragable-markers
 enlarge-a-polygon-box-by-5%  
 fitBounds-with-padding  
 fullscreen  
-~~geocoding-addresses-search-engine-outside-the-map~~   
-geoJson-extended-action   
+~~geocoding-addresses-search-engine-outside-the-map~~  
+geoJson-extended-action  
 geoJson-simple  
 ~~image-icons-prev-next~~  
 image-instead-of-map  
+image-on-map  
 ~~linked-view~~  
 location  
 many-markers  
 marker-draggable-on-a-click  
 marker-grouping-markercluster-plugin  
-markers-60K   
-matching-all-markers-to-the-map-view    
+markers-60K  
+matching-all-markers-to-the-map-view  
 maxBound-map-restricts-the-view  
 ~~mini-map~~  
 multiple-tile-layers  
@@ -56,4 +58,4 @@ show scale
 simple-map  
 ~~story-maps-IntersectionObserver~~  
 svg-markers-width-legends  
-TileLayer  
+TileLayer

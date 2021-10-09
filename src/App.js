@@ -1,36 +1,47 @@
-import { lazy, useState, useCallback, useEffect, Suspense } from 'react';
-import { BrowserRouter as Router, Redirect, Route, useParams, Switch } from 'react-router-dom';
-import GithubCorner from './components/GithubCorner';
+import { lazy, useState, useCallback, useEffect, Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  useParams,
+  Switch,
+} from "react-router-dom";
+import GithubCorner from "./components/GithubCorner";
 import "./App.css";
 
-import Header from './components/Header';
-import Menu from './components/Menu';
+import Header from "./components/Header";
+import Menu from "./components/Menu";
 
-const address = 'https://github.com/tomik23/react-leaflet-examples/blob/main/src/pages/';
+const address =
+  "https://github.com/tomik23/react-leaflet-examples/blob/main/src/pages/";
 
 const ChangeTitle = ({ title }) => {
-  const titleName = title.replace(/-/g, ' ');
+  const titleName = title.replace(/-/g, " ");
   useEffect(() => {
-    document.title = titleName
-  }, [titleName])
+    document.title = titleName;
+  }, [titleName]);
 
-  return <h2 className="title">{titleName}</h2>
-}
+  return <h2 className="title">{titleName}</h2>;
+};
 
 const Info = ({ info }) => {
-  return info
-    ? <small dangerouslySetInnerHTML={{ __html: info }} />
-    : null;
-}
+  return info ? <small dangerouslySetInnerHTML={{ __html: info }} /> : null;
+};
 
 const Child = ({ info }) => {
   let { id } = useParams();
-  const LoadComponent = lazy(() => import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`).catch(() => import('./components/NotFound.js')));
+  const LoadComponent = lazy(() =>
+    import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`).catch(() =>
+      import("./components/NotFound.js")
+    )
+  );
 
   const ShowSource = () => (
     <div className="info-container">
       <small>
-        <a target="_blank" rel="noreferrer" href={address + id + ".js"}>sources</a>
+        <a target="_blank" rel="noreferrer" href={address + id + ".js"}>
+          sources
+        </a>
       </small>
       <Info info={info} />
     </div>
@@ -43,10 +54,10 @@ const Child = ({ info }) => {
       <ShowSource />
     </>
   );
-}
+};
 
 function App() {
-  const [info, setInfo] = useState('')
+  const [info, setInfo] = useState("");
   const callback = useCallback((info) => {
     setInfo(info);
   }, []);
@@ -60,9 +71,9 @@ function App() {
           <Suspense fallback={<div>Page is Loading...</div>}>
             <Switch>
               <Route exact path="/">
-                <Redirect to='/simple-map' />
+                <Redirect to="/add-move-and-delete-marker" />
               </Route>
-              <Route path='/:id' children={<Child info={info} />} />
+              <Route path="/:id" children={<Child info={info} />} />
             </Switch>
           </Suspense>
         </main>
