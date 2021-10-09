@@ -4,7 +4,7 @@ import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
-function Location() {
+const Location = () => {
   const map = useMap();
   const [position, setPosition] = useState(null)
 

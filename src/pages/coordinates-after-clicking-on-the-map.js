@@ -5,7 +5,7 @@ import tileLayer from '../util/tileLayer';
 
 const center = [52.22977, 21.01178];
 
-function GetCoordinates() {
+const GetCoordinates = () => {
   const map = useMap();
 
   useEffect(() => {
