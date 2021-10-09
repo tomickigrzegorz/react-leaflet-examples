@@ -204,10 +204,9 @@
     "done": "true"
   },
   {
-    "link": "distance-between-cities-on-map",
-    "text": "distance between cities on map",
-    "info": "<a href='https://github.com/tomik23/autocomplete' target='_blank'>the example uses the autocomplete</a>",
-    "done": "false"
+    "link": "distance-between-two-points",
+    "text": "distance between two points",
+    "done": "true"
   },
   {
     "link": "back-to-home-button",
@@ -217,6 +216,11 @@
   {
     "link": "show-scale",
     "text": "show scale",
+    "done": "true"
+  },
+  {
+    "link": "image-on-map",
+    "text": "image on map",
     "done": "true"
   }
 ]
