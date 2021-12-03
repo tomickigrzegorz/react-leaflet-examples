@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import menu from "../data/menu.json";
 
@@ -30,11 +30,13 @@ const Menu = ({ parentCallback }) => {
                   }}
                   to={"/" + item.link}
                 >
-                  {item.text}
+                  {index + 1}. {item.text}
                 </Link>
               )}
               {item.done === "false" && (
-                <div className="not-clickable">{item.text}</div>
+                <div className="not-clickable">
+                  {index + 1}. {item.text}
+                </div>
               )}
             </li>
           ))}

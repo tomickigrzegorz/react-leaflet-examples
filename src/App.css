@@ -289,5 +289,67 @@ main {
 
 .show-button-home .back-to-home {
   display: block;
-  margin-left: 11px;
+  margin-left: 0;
+}
+
+.locate-button {
+  position: absolute;
+  top: 80px;
+  left: 2px;
+  z-index: 999;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: none;
+  padding: 5px;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
+}
+
+.locate-active {
+  fill: red;
+}
+
+.located-animation {
+  width: 17px;
+  height: 17px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: #2a93ee;
+  animation: border-pulse 2s infinite;
+}
+
+@keyframes border-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+.leaflet-random-marker {
+  background: #fff;
+  padding: 5px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #ccc;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
+  border-radius: 4px;
+}
+
+.react-tabs ul {
+  background-color: transparent;
+  overflow: hidden;
 }

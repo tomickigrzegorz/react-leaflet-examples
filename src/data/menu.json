@@ -222,5 +222,31 @@
     "link": "image-on-map",
     "text": "image on map",
     "done": "true"
+  },
+  {
+    "link": "checking-if-the-marker-is-in-viewport",
+    "text": "checking if the marker is in viewport",
+    "done": "true"
+  },
+  {
+    "link": "tiles-gray",
+    "text": "tiles gray",
+    "done": "true"
+  },
+  {
+    "link": "location-button",
+    "text": "location button",
+    "done": "true"
+  },
+  {
+    "link": "random-marker-in-map-bounds",
+    "text": "random marker in map bounds",
+    "done": "true"
+  },
+  {
+    "link": "tabs-in-popup",
+    "text": "tabs in popup",
+    "info": "<a href='https://github.com/reactjs/react-tabs' target='_blank'>the example uses the react-tabs</a>",
+    "done": "true"
   }
 ]
