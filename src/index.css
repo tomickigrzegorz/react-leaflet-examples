@@ -12,9 +12,30 @@ body {
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  font-family: Lato, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   min-height: 100%;
   padding: 0;
   margin: 0;
-  background-color: #f1f1f1;
+  background-color: #fff;
+}
+
+.show-menu {
+  display: none;
+  cursor: pointer;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .show-menu {
+    position: fixed;
+    display: block;
+    bottom: 30px;
+    right: 0;
+    padding: 10px 15px;
+    background: #333;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    z-index: 10;
+  }
 }

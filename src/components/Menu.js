@@ -18,7 +18,7 @@ const Menu = ({ parentCallback }) => {
     <nav>
       <ul>
         {menu
-          .sort((a, b) => a.text.localeCompare(b.text))
+          // .sort((a, b) => a.text.localeCompare(b.text))
           .map((item, index) => (
             <li key={item.link} className={index === id ? "active" : ""}>
               {item.done === "true" && (

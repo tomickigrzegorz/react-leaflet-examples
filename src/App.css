@@ -7,20 +7,21 @@ main {
 }
 
 h1 {
+  position: relative;
   width: 100%;
-  font-size: 60px;
-  text-align: center;
+  margin-top: 30px;
+  line-height: 1;
+  font-size: clamp(2rem, -0.875rem + 8.333vw, 3.3rem);
 }
 
 h2 {
   position: relative;
-  font-size: 32px;
-  text-align: center;
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 2.5rem);
   line-height: 100%;
-  padding: 0 30px;
+  padding: 0 30px 0 0;
 }
 
-ul {
+nav ul {
   width: 100%;
   height: 100vh;
   background: #fff;
@@ -29,11 +30,11 @@ ul {
   padding-bottom: 30px;
 }
 
-ul {
+nav ul {
   grid-area: nav;
 }
 
-ul a,
+nav ul a,
 .not-clickable {
   position: relative;
   display: block;
@@ -44,7 +45,7 @@ ul a,
 }
 
 .active {
-  background: #333;
+  background: #333 !important;
 }
 
 .active a {
@@ -82,11 +83,17 @@ small a:hover {
 }
 
 .leaflet-container {
-  width: 100%;
-  height: 500px;
   margin: 30px auto;
-  box-shadow: 0 0 40px 10px rgb(3 169 244 / 20%);
-  border: 2px solid #03a9f4;
+  height: 500px;
+  z-index: 0;
+  border: 2px solid #333;
+  overflow: hidden;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  border: 0;
 }
 
 .grid {
@@ -95,9 +102,10 @@ small a:hover {
   grid-template-areas:
     "nav head"
     "nav main";
-  grid-template-columns: 350px 1fr;
+  grid-template-columns: 300px 1fr;
   grid-template-rows: 100px;
-  gap: 30px;
+  gap: 0 30px;
+  max-width: 1350px;
 }
 
 header {
@@ -108,6 +116,16 @@ nav {
   grid-area: nav;
 }
 
+nav {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  min-height: 100%;
+  padding-bottom: 30px;
+  border-right: 2px solid #333;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.2);
+}
+
 main {
   grid-area: main;
   max-width: 1000px;
@@ -116,60 +134,53 @@ main {
   margin: 0 auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .grid {
-    grid-template-rows: 70px;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-areas:
       "head"
-      "nav"
       "main";
+    gap: 0;
+  }
+
+  header {
+    padding: 20px;
+  }
+
+  .show-menu {
+    position: fixed;
+    display: block;
+    bottom: 30px;
+    right: 0;
+    padding: 10px 15px;
+    background: #333;
+    color: #fff;
+    border-radius: 5px 0 0 5px;
+    z-index: 10;
   }
 
   nav {
-    height: auto;
-    text-align: center;
-    padding: 0 10px;
-    background-color: #f1f1f1;
+    position: fixed;
+    z-index: 9;
+    max-width: 320px;
+    min-height: 100%;
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    transform: translateX(-400px);
+    transition: transform 0.5s ease-in-out;
   }
 
-  ul li {
-    display: inline-block;
-    width: auto;
-    padding: 3px 2px;
-    border-radius: 5px;
-    margin: 0;
+  .show-menu-examples nav {
+    transform: translateX(0);
   }
-  ul li:hover {
+
+  nav ul li:hover {
     background: #d6d6d6;
   }
   main {
     padding: 20px;
   }
-}
-
-@media (max-width: 1000px) {
-  ul a {
-    display: inline-block;
-    width: auto;
-    padding: 0 3px;
-    border-radius: 5px;
-    margin: 0;
-  }
-
-  ul {
-    height: auto;
-    text-align: center;
-    padding: 0 20px;
-    background-color: #f1f1f1;
-  }
-  .not-clickable {
-    padding: 0;
-  }
-}
-
-.title {
-  text-align: center;
 }
 
 .marker-position {
@@ -228,128 +239,4 @@ main {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   border: 1px solid grey;
-}
-
-.rotate .leaflet-container {
-  overflow: hidden;
-  animation: spin 4s linear forwards;
-}
-
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
-
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-.rotate .pooooo {
-  position: fixed;
-  display: flex !important;
-  align-items: center;
-  top: 0;
-  width: 100% !important;
-  height: 100% !important;
-  border: 1px solid red;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-size: 12rem !important;
-}
-
-.center-of-map:before {
-  position: absolute;
-  content: "\271B";
-  z-index: 990;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  font-size: 4rem;
-}
-
-.back-to-home {
-  width: 32px;
-  height: 32px;
-  z-index: 999;
-  cursor: pointer;
-  padding: 5px;
-  display: none;
-  background: #fff;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 65%);
-}
-
-.show-button-home .back-to-home {
-  display: block;
-  margin-left: 0;
-}
-
-.locate-button {
-  position: absolute;
-  top: 80px;
-  left: 2px;
-  z-index: 999;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  display: none;
-  padding: 5px;
-  background: #fff;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
-  box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
-}
-
-.locate-active {
-  fill: red;
-}
-
-.located-animation {
-  width: 17px;
-  height: 17px;
-  border: 1px solid #fff;
-  border-radius: 50%;
-  background: #2a93ee;
-  animation: border-pulse 2s infinite;
-}
-
-@keyframes border-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
-  }
-
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
-  }
-}
-
-.leaflet-random-marker {
-  background: #fff;
-  padding: 5px;
-  width: 34px;
-  height: 34px;
-  border: 1px solid #ccc;
-  display: flex;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 1px 5px rgb(0 0 0 / 65%);
-  border-radius: 4px;
-}
-
-.react-tabs ul {
-  background-color: transparent;
-  overflow: hidden;
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import "./location-button.css";
 import L from "leaflet";
 import tileLayer from "../util/tileLayer";
 

@@ -33,7 +33,7 @@ const MapWrapper = () => {
       <TileLayer {...tileLayer} />
 
       <Marker position={center}>
-        <Popup maxWidth={320} keepInView={true}>
+        <Popup maxWidth={320}>
           <Tabs>
             <TabList>
               <Tab>Sukiennice</Tab>

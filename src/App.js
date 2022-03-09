@@ -1,16 +1,24 @@
-import { lazy, useState, useCallback, useEffect, Suspense } from "react";
 import {
-  BrowserRouter as Router,
+  Fragment,
+  lazy,
+  useState,
+  useCallback,
+  useEffect,
+  Suspense,
+} from "react";
+import {
   Redirect,
   Route,
   useParams,
   Switch,
+  HashRouter as Router,
 } from "react-router-dom";
 import GithubCorner from "./components/GithubCorner";
 import "./App.css";
 
 import Header from "./components/Header";
 import Menu from "./components/Menu";
+import ButtonManu from "./components/ButtonManu";
 
 const address =
   "https://github.com/tomik23/react-leaflet-examples/blob/main/src/pages/";
@@ -78,6 +86,7 @@ function App() {
           </Suspense>
         </main>
       </div>
+      <ButtonManu />
       <GithubCorner />
     </Router>
   );

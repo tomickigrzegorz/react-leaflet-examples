@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
+import "./random-marker-in-map-bounds.css";
 import L from "leaflet";
 import tileLayer from "../util/tileLayer";
 
