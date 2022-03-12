@@ -27,18 +27,9 @@
   font-size: 2rem;
 }
 
-.leaflet-marker-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 12px;
-  line-height: 13px;
-  box-shadow: 0px 0px 10px rgb(255, 0, 0);
-  border-radius: 100%;
-  border: 3px solid #fff;
-  padding: 13px;
-  background: #ff0000;
+.animation {
+  background: #000;
+  animation: border-pulse 1.5s infinite;
 }
 
 @keyframes border-pulse {
@@ -53,9 +44,4 @@
   100% {
     box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
   }
-}
-
-.animation {
-  background: #000;
-  animation: border-pulse 1.5s infinite;
 }

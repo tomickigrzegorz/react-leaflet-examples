@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import newMarker from "../data/pin.png";
-import "./custom-marker-and-popup.css";
+import styles from "./custom-marker-and-popup.css";
 import tileLayer from "../util/tileLayer";
 
 const center = [52.22977, 21.01178];
@@ -31,7 +31,9 @@ const MapWrapper = () => {
       <TileLayer {...tileLayer} />
 
       <Marker icon={pointerIcon} position={center}>
-        <Popup>{customPopup}</Popup>
+        <Popup className={"new-popup"} minWidth={300}>
+          {customPopup}
+        </Popup>
       </Marker>
     </MapContainer>
   );
