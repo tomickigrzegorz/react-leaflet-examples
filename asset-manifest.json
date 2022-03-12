@@ -23,10 +23,10 @@
     "pages-coordinates-of-the-center-of-the-visible-map-js.css": "/react-leaflet-examples/static/css/pages-coordinates-of-the-center-of-the-visible-map-js.7d22fcd7.chunk.css",
     "pages-coordinates-of-the-center-of-the-visible-map-js.js": "/react-leaflet-examples/static/js/pages-coordinates-of-the-center-of-the-visible-map-js.6451166f.chunk.js",
     "pages-coordinates-of-the-visible-map-js.js": "/react-leaflet-examples/static/js/pages-coordinates-of-the-visible-map-js.890b5125.chunk.js",
-    "pages-custom-button-js.css": "/react-leaflet-examples/static/css/pages-custom-button-js.90f81a6f.chunk.css",
+    "pages-custom-button-js.css": "/react-leaflet-examples/static/css/pages-custom-button-js.3b184a42.chunk.css",
     "pages-custom-button-js.js": "/react-leaflet-examples/static/js/pages-custom-button-js.88089b92.chunk.js",
-    "pages-custom-marker-and-popup-js.css": "/react-leaflet-examples/static/css/pages-custom-marker-and-popup-js.90021a07.chunk.css",
-    "pages-custom-marker-and-popup-js.js": "/react-leaflet-examples/static/js/pages-custom-marker-and-popup-js.9feb80b8.chunk.js",
+    "pages-custom-marker-and-popup-js.css": "/react-leaflet-examples/static/css/pages-custom-marker-and-popup-js.42638c5d.chunk.css",
+    "pages-custom-marker-and-popup-js.js": "/react-leaflet-examples/static/js/pages-custom-marker-and-popup-js.ebab54f9.chunk.js",
     "pages-distance-between-two-points-js.js": "/react-leaflet-examples/static/js/pages-distance-between-two-points-js.16d2d4d8.chunk.js",
     "pages-dragable-markers-js.js": "/react-leaflet-examples/static/js/pages-dragable-markers-js.b54b89b7.chunk.js",
     "pages-enlarge-a-polygon-box-by-5-percent-js.js": "/react-leaflet-examples/static/js/pages-enlarge-a-polygon-box-by-5-percent-js.fcebb66f.chunk.js",
@@ -59,7 +59,7 @@
     "pages-tabs-in-popup-js.js": "/react-leaflet-examples/static/js/pages-tabs-in-popup-js.286b9671.chunk.js",
     "pages-tileLayer-js.js": "/react-leaflet-examples/static/js/pages-tileLayer-js.e4f7fa11.chunk.js",
     "pages-tiles-gray-js.js": "/react-leaflet-examples/static/js/pages-tiles-gray-js.bbb07967.chunk.js",
-    "runtime-main.js": "/react-leaflet-examples/static/js/runtime-main.316c40ec.js",
+    "runtime-main.js": "/react-leaflet-examples/static/js/runtime-main.f0ff2afb.js",
     "static/js/49.cdaaef00.chunk.js": "/react-leaflet-examples/static/js/49.cdaaef00.chunk.js",
     "static/css/50.3c091339.chunk.css": "/react-leaflet-examples/static/css/50.3c091339.chunk.css",
     "static/js/50.416fca5c.chunk.js": "/react-leaflet-examples/static/js/50.416fca5c.chunk.js",
@@ -73,7 +73,7 @@
     "static/media/pin.png": "/react-leaflet-examples/static/media/pin.5c3f4112.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.316c40ec.js",
+    "static/js/runtime-main.f0ff2afb.js",
     "static/js/49.cdaaef00.chunk.js",
     "static/css/main.1c42dc71.chunk.css",
     "static/js/main.2e0a7a76.chunk.js"
