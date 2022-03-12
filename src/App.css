@@ -1,11 +1,3 @@
-main {
-  grid-area: main;
-  max-width: 1000px;
-  width: 100%;
-  padding-right: 30px;
-  margin: 0 auto;
-}
-
 h1 {
   position: relative;
   width: 100%;
@@ -45,10 +37,7 @@ nav ul a,
 }
 
 .active {
-  background: #333 !important;
-}
-
-.active a {
+  background: #333;
   color: #e2e2e2;
 }
 
@@ -131,7 +120,6 @@ main {
   max-width: 1000px;
   width: 100%;
   padding-right: 30px;
-  margin: 0 auto;
 }
 
 @media (max-width: 900px) {

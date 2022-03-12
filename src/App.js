@@ -1,15 +1,8 @@
-import {
-  Fragment,
-  lazy,
-  useState,
-  useCallback,
-  useEffect,
-  Suspense,
-} from "react";
+import { lazy, useState, useCallback, useEffect, Suspense } from "react";
 import {
   Redirect,
   Route,
-  useParams,
+  useLocation,
   Switch,
   HashRouter as Router,
 } from "react-router-dom";
@@ -36,12 +29,12 @@ const Info = ({ info }) => {
   return info ? <small dangerouslySetInnerHTML={{ __html: info }} /> : null;
 };
 
-const Child = ({ info }) => {
-  let { id } = useParams();
+const Child = ({ info, id, text }) => {
+  const location = useLocation();
   const LoadComponent = lazy(() =>
-    import(/* webpackChunkName: "[request]" */ `./pages/${id}.js`).catch(() =>
-      import("./components/NotFound.js")
-    )
+    import(
+      /* webpackChunkName: "[request]" */ `./pages${location.pathname}.js`
+    ).catch(() => import("./components/NotFound.js"))
   );
 
   const ShowSource = () => (
@@ -51,13 +44,13 @@ const Child = ({ info }) => {
           sources
         </a>
       </small>
-      <Info info={info} />
+      <Info info={text} />
     </div>
   );
 
   return (
     <>
-      <ChangeTitle title={id} />
+      <ChangeTitle title={location.pathname.replace(/\//, " ")} />
       <LoadComponent />
       <ShowSource />
     </>
@@ -66,12 +59,16 @@ const Child = ({ info }) => {
 
 function App() {
   const [info, setInfo] = useState("");
-  const callback = useCallback((info) => {
+  const [id, setID] = useState("");
+  const [text, setText] = useState("");
+  const callback = useCallback((id, text, info) => {
     setInfo(info);
+    setID(id);
+    setText(text);
   }, []);
 
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <div className="grid">
         <Menu parentCallback={callback} />
         <Header />
@@ -79,9 +76,12 @@ function App() {
           <Suspense fallback={<div>Page is Loading...</div>}>
             <Switch>
               <Route exact path="/">
-                <Redirect to="/add-move-and-delete-marker" />
+                <Redirect to="/simple-map" />
               </Route>
-              <Route path="/:id" children={<Child info={info} />} />
+              <Route
+                path="/:id"
+                children={<Child info={info} id={id} text={text} />}
+              />
             </Switch>
           </Suspense>
         </main>

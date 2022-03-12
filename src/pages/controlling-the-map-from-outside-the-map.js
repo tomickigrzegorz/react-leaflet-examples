@@ -1,25 +1,7 @@
 import { useRef, useEffect, useState } from "react";
 import { MapContainer, useMap, TileLayer, Marker, Popup } from "react-leaflet";
-import styled from "styled-components";
+import "./controlling-the-map-from-outside-the-map.css";
 import tileLayer from "../util/tileLayer";
-
-const MarkersList = styled.div`
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  max-width: 350px;
-  margin: auto;
-  color: salmon;
-`;
-
-const MarkerItem = styled.div`
-  margin-top: -10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid transparent;
-  &:hover {
-    border-bottom: 1px solid salmon;
-  }
-`;
 
 const center = [52.2295, 21.01];
 
@@ -52,9 +34,10 @@ const points = [
 
 const ListMarkers = ({ onItemClick }) => {
   return (
-    <MarkersList>
+    <div className="markers-list">
       {points.map(({ title }, index) => (
-        <MarkerItem
+        <div
+          className="marker-item"
           key={index}
           onClick={(e) => {
             e.preventDefault();
@@ -62,9 +45,9 @@ const ListMarkers = ({ onItemClick }) => {
           }}
         >
           {title}
-        </MarkerItem>
+        </div>
       ))}
-    </MarkersList>
+    </div>
   );
 };
 

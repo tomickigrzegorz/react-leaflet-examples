@@ -1,35 +1,23 @@
-import { useRef, useState, useEffect } from 'react';
-import { MapContainer, TileLayer, ZoomControl, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import styled from 'styled-components';
-import tileLayer from '../util/tileLayer';
-
-const Wrapper = styled.div`
-  position: relative;
-`;
-
-const Info = styled.div`
-  position: absolute;
-  z-index: 999;
-  border: 2px solid #0084ff;
-  top: 15px;
-  bottom: 15px;
-  left: 15px;
-  width: 30%;
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px 10px rgb(0 140 255 / 20%);
-  overflow: hidden;
-`;
+import { useRef, useState, useEffect } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  ZoomControl,
+  Marker,
+  Popup,
+} from "react-leaflet";
+import L from "leaflet";
+import "./fitBounds-with-padding.css";
+import tileLayer from "../util/tileLayer";
 
 const center = [52.22977, 21.01178];
 
-const infoText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati a deserunt distinctio vitae! Dolores officiis animi ab ut officia consequuntur fuga, possimus et eligendi, facilis libero nulla repellat modi magnam!";
+const infoText =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati a deserunt distinctio vitae! Dolores officiis animi ab ut officia consequuntur fuga, possimus et eligendi, facilis libero nulla repellat modi magnam!";
 
 const MapWrapper = () => {
   const infoRef = useRef(0);
-  const [map, setMap] = useState(null)
+  const [map, setMap] = useState(null);
 
   useEffect(() => {
     if (!map) return;
@@ -41,49 +29,47 @@ const MapWrapper = () => {
       if (layer instanceof L.Marker) {
         visibleMarkers.push(layer);
       }
-    })
+    });
 
-    const featureGroup = L.featureGroup(visibleMarkers).getBounds()
+    const featureGroup = L.featureGroup(visibleMarkers).getBounds();
 
     function handleResize() {
       map.fitBounds(featureGroup, {
-        paddingTopLeft: [ref + 10, 10]
-      })
+        paddingTopLeft: [ref + 10, 10],
+      });
     }
 
     handleResize();
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize);
 
-    return _ => {
-      window.removeEventListener('resize', handleResize)
-    }
-
-  }, [map])
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [map]);
 
   return (
-    <Wrapper>
-      <Info ref={infoRef}>
+    <div className="wrapper">
+      <div className="info" ref={infoRef}>
         {infoText}
-      </Info>
+      </div>
       <MapContainer
         whenCreated={setMap}
-        center={center} zoom={18}
+        center={center}
+        zoom={18}
         zoomControl={false}
         scrollWheelZoom={false}
       >
-
-        <ZoomControl position={'topright'} />
+        <ZoomControl position={"topright"} />
 
         <TileLayer {...tileLayer} />
 
         <Marker position={center}>
           <Popup>Center Warsaw</Popup>
         </Marker>
-
       </MapContainer>
-    </Wrapper>
-  )
-}
+    </div>
+  );
+};
 
 export default MapWrapper;

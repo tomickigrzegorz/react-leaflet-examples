@@ -248,10 +248,5 @@
     "text": "tabs in popup",
     "info": "<a href='https://github.com/reactjs/react-tabs' target='_blank'>the example uses the react-tabs</a>",
     "done": "true"
-  },
-  {
-    "link": "count-markers",
-    "text": "count markers",
-    "done": "false"
   }
 ]

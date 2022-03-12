@@ -1,16 +1,8 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import styled from "styled-components";
-import newMarker from '../data/pin.png'
-import tileLayer from '../util/tileLayer';
-
-const StyledPopup = styled(Popup)`
-  .leaflet-popup-content-wrapper, .leaflet-popup-tip{
-    width: auto;
-    background: #000;
-    color: #fff;
-  }
-`;
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import newMarker from "../data/pin.png";
+import "./custom-marker-and-popup.css";
+import tileLayer from "../util/tileLayer";
 
 const center = [52.22977, 21.01178];
 
@@ -19,9 +11,19 @@ const pointerIcon = new L.Icon({
   iconSize: [50, 58], // size of the icon
   iconAnchor: [20, 58], // changed marker icon position
   popupAnchor: [0, -60], // changed popup position
-})
+});
 
-const customPopup = <iframe width="auto" title="Marek Grechuta" height="310" src="https://www.youtube.com/embed/glKDhBuoRUs" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>;
+const customPopup = (
+  <iframe
+    width="auto"
+    title="Marek Grechuta"
+    height="310"
+    src="https://www.youtube.com/embed/glKDhBuoRUs"
+    frameBorder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  ></iframe>
+);
 
 const MapWrapper = () => {
   return (
@@ -29,13 +31,10 @@ const MapWrapper = () => {
       <TileLayer {...tileLayer} />
 
       <Marker icon={pointerIcon} position={center}>
-        <StyledPopup>
-          {customPopup}
-        </StyledPopup>
+        <Popup>{customPopup}</Popup>
       </Marker>
-
     </MapContainer>
-  )
-}
+  );
+};
 
 export default MapWrapper;

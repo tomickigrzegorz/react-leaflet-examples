@@ -1,0 +1,18 @@
+.wrapper {
+  position: relative;
+}
+
+.info {
+  position: absolute;
+  z-index: 999;
+  border: 2px solid #0084ff;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  width: 30%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 10px rgb(0 140 255 / 20%);
+  overflow: hidden;
+}
