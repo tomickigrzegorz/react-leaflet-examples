@@ -6,7 +6,7 @@
     "static/js/2.e5723db1.chunk.js": "/react-leaflet-examples/static/js/2.e5723db1.chunk.js",
     "static/js/3.79e127f9.chunk.js": "/react-leaflet-examples/static/js/3.79e127f9.chunk.js",
     "main.css": "/react-leaflet-examples/static/css/main.1c42dc71.chunk.css",
-    "main.js": "/react-leaflet-examples/static/js/main.cf225836.chunk.js",
+    "main.js": "/react-leaflet-examples/static/js/main.9de3eff2.chunk.js",
     "pages-add-move-and-delete-marker-js.js": "/react-leaflet-examples/static/js/pages-add-move-and-delete-marker-js.335495f5.chunk.js",
     "pages-adding-map-description-js.js": "/react-leaflet-examples/static/js/pages-adding-map-description-js.a72633db.chunk.js",
     "pages-adding-one-marker-js.js": "/react-leaflet-examples/static/js/pages-adding-one-marker-js.fcb25ccf.chunk.js",
@@ -15,8 +15,8 @@
     "pages-center-map-when-click-marker-js.js": "/react-leaflet-examples/static/js/pages-center-map-when-click-marker-js.a5754fe9.chunk.js",
     "pages-changing-locate-zoom-control-js.js": "/react-leaflet-examples/static/js/pages-changing-locate-zoom-control-js.a5393217.chunk.js",
     "pages-checking-if-the-marker-is-in-viewport-js.js": "/react-leaflet-examples/static/js/pages-checking-if-the-marker-is-in-viewport-js.dc49054c.chunk.js",
-    "pages-controling-polygons-js.js": "/react-leaflet-examples/static/js/pages-controling-polygons-js.6fa5fd02.chunk.js",
-    "pages-controlling-different-groups-of-markers-js.js": "/react-leaflet-examples/static/js/pages-controlling-different-groups-of-markers-js.52108786.chunk.js",
+    "pages-controlling-different-groups-of-markers-js.js": "/react-leaflet-examples/static/js/pages-controlling-different-groups-of-markers-js.b62fbc7a.chunk.js",
+    "pages-controlling-polygons-js.js": "/react-leaflet-examples/static/js/pages-controlling-polygons-js.bf63f5e8.chunk.js",
     "pages-controlling-the-map-from-outside-the-map-js.css": "/react-leaflet-examples/static/css/pages-controlling-the-map-from-outside-the-map-js.c544ed52.chunk.css",
     "pages-controlling-the-map-from-outside-the-map-js.js": "/react-leaflet-examples/static/js/pages-controlling-the-map-from-outside-the-map-js.21874b43.chunk.js",
     "pages-coordinates-after-clicking-on-the-map-js.js": "/react-leaflet-examples/static/js/pages-coordinates-after-clicking-on-the-map-js.48e6097c.chunk.js",
@@ -61,7 +61,7 @@
     "pages-tabs-in-popup-js.js": "/react-leaflet-examples/static/js/pages-tabs-in-popup-js.4bd2ac75.chunk.js",
     "pages-tileLayer-js.js": "/react-leaflet-examples/static/js/pages-tileLayer-js.f3c25ab2.chunk.js",
     "pages-tiles-gray-js.js": "/react-leaflet-examples/static/js/pages-tiles-gray-js.6bef03b4.chunk.js",
-    "runtime-main.js": "/react-leaflet-examples/static/js/runtime-main.f7d1a55a.js",
+    "runtime-main.js": "/react-leaflet-examples/static/js/runtime-main.d9de4394.js",
     "static/js/50.4c469f43.chunk.js": "/react-leaflet-examples/static/js/50.4c469f43.chunk.js",
     "static/css/51.3c091339.chunk.css": "/react-leaflet-examples/static/css/51.3c091339.chunk.css",
     "static/js/51.ce47df8a.chunk.js": "/react-leaflet-examples/static/js/51.ce47df8a.chunk.js",
@@ -75,9 +75,9 @@
     "static/media/pin.png": "/react-leaflet-examples/static/media/pin.5c3f4112.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.f7d1a55a.js",
+    "static/js/runtime-main.d9de4394.js",
     "static/js/50.4c469f43.chunk.js",
     "static/css/main.1c42dc71.chunk.css",
-    "static/js/main.cf225836.chunk.js"
+    "static/js/main.9de3eff2.chunk.js"
   ]
 }
