@@ -1,4 +1,4 @@
-.markers-list {
+.markersList {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -7,12 +7,12 @@
   color: salmon;
 }
 
-.marker-item {
+.markerItem {
   margin-top: -10px;
   padding-bottom: 5px;
   border-bottom: 1px solid transparent;
 }
 
-.marker-item:hover {
+.markerItem:hover {
   border-bottom: 1px solid salmon;
 }

@@ -19,7 +19,7 @@ const CustomButton = ({ map }) => {
         const btn = L.DomUtil.create("button");
         btn.title = "pooooooooooooop rotation";
         btn.textContent = "💩";
-        btn.className = "custom-button";
+        btn.className = "customButton";
 
         btn.onmouseover = function () {
           this.style.transform = "scale(1.3)";

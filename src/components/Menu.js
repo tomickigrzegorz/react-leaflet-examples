@@ -1,6 +1,12 @@
 import { NavLink } from "react-router-dom";
 import menu from "../data/menu.json";
 
+const resetToggle = () => {
+  if (document.querySelector(".show-menu-examples")) {
+    document.body.classList.remove("show-menu-examples");
+  }
+};
+
 const Menu = ({ parentCallback }) => {
   return (
     <nav>
@@ -11,6 +17,7 @@ const Menu = ({ parentCallback }) => {
               <NavLink
                 id={`link-${index}`}
                 onClick={() => {
+                  resetToggle();
                   parentCallback(item.link, item.text, item.info);
                 }}
                 to={"/" + item.link}

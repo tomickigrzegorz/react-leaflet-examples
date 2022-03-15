@@ -7,11 +7,12 @@ import {
   HashRouter as Router,
 } from "react-router-dom";
 import GithubCorner from "./components/GithubCorner";
+import menu from "./data/menu.json";
 import "./App.css";
 
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-import ButtonManu from "./components/ButtonManu";
+import ButtonMenu from "./components/ButtonMenu";
 
 const address =
   "https://github.com/tomik23/react-leaflet-examples/blob/main/src/pages/";
@@ -26,7 +27,13 @@ const ChangeTitle = ({ title }) => {
 };
 
 const Info = ({ info }) => {
-  return info ? <small dangerouslySetInnerHTML={{ __html: info }} /> : null;
+  const { info: infoText } = menu.find((item) => item.link === info);
+
+  return infoText ? (
+    <small dangerouslySetInnerHTML={{ __html: infoText }} />
+  ) : (
+    ""
+  );
 };
 
 const Child = ({ info, id, text }) => {
@@ -44,7 +51,7 @@ const Child = ({ info, id, text }) => {
           sources
         </a>
       </small>
-      <Info info={text} />
+      <Info info={location.pathname.replace(/\//, "")} />
     </div>
   );
 
@@ -80,13 +87,13 @@ function App() {
               </Route>
               <Route
                 path="/:id"
-                children={<Child info={info} id={id} text={text} />}
+                children={<Child id={id} info={info} text={text} />}
               />
             </Switch>
           </Suspense>
         </main>
       </div>
-      <ButtonManu />
+      <ButtonMenu />
       <GithubCorner />
     </Router>
   );

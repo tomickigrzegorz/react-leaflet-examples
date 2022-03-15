@@ -7,7 +7,7 @@ import {
   Popup,
 } from "react-leaflet";
 import L from "leaflet";
-import "./fitBounds-with-padding.css";
+import styles from "./fitBounds-with-padding.module.css";
 import tileLayer from "../util/tileLayer";
 
 const center = [52.22977, 21.01178];
@@ -49,8 +49,8 @@ const MapWrapper = () => {
   }, [map]);
 
   return (
-    <div className="wrapper">
-      <div className="info" ref={infoRef}>
+    <div className={styles.wrapper}>
+      <div className={styles.info} ref={infoRef}>
         {infoText}
       </div>
       <MapContainer

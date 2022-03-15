@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
-import "./random-marker-in-map-bounds.css";
+import styles from "./random-marker-in-map-bounds.module.css";
 import L from "leaflet";
 import tileLayer from "../util/tileLayer";
 
@@ -33,7 +33,7 @@ const RandomMarkerInMapBounds = ({ map }) => {
       options: {
         position: "topleft",
         title: "random marker",
-        className: "leaflet-random-marker",
+        className: styles.leafletRandomMarker,
       },
 
       // method
