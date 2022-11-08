@@ -17,10 +17,8 @@ function onEachFeature(feature, layer) {
 
     getVoivodeshipName(feature, layer);
 
-    this.openPopup();
-
     // style
-    this.setStyle({
+    layer.setStyle({
       fillColor: '#eb4034',
       weight: 2,
       color: '#eb4034',
@@ -28,9 +26,8 @@ function onEachFeature(feature, layer) {
     });
   });
   layer.on('mouseout', function () {
-    this.closePopup();
     // style
-    this.setStyle({
+    layer.setStyle({
       fillColor: '#3388ff',
       weight: 2,
       color: '#3388ff',
