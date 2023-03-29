@@ -4,11 +4,11 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-> The full version (vanilla-js) with all working examples can be found at this link [leaflet-examples](https://github.com/tomik23/leaflet-examples).
+> The full version (vanilla-js) with all working examples can be found at this link [leaflet-examples](https://tomickigrzegorz.github.io/leaflet-examples).
 
 ## Demo
 
-Here is a working live demo : https://tomik23.github.io/react-leaflet-examples/
+Here is a working live demo : https://tomickigrzegorz.github.io/react-leaflet-examples/
 
 <img src="./src/data/leaflet.png">
 
