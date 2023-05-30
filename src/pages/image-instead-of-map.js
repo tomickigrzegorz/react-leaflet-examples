@@ -14,7 +14,7 @@ const OverlayImage = () => {
   return (
     <ImageOverlay
       bounds={imageBounds}
-      url={'https://tomik23.github.io/leaflet-examples/static/factory_UML.png'}
+      url={'https://tomickigrzegorz.github.io/leaflet-examples/static/factory_UML.png'}
       transparent={true}
     />
   );
